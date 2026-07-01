@@ -1,0 +1,17 @@
+# Java / Kotlin
+target/
+build/
+.gradle/
+
+# .NET
+bin/
+obj/
+TestResults/
+
+# IDEs
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
