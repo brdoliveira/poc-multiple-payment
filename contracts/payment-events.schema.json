@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/contracts/payment-events.schema.json",
+  "title": "Payment Event",
+  "type": "object",
+  "required": ["eventId", "eventType", "paymentId", "occurredAt", "version"],
+  "properties": {
+    "eventId": { "type": "string", "format": "uuid" },
+    "eventType": {
+      "type": "string",
+      "enum": [
+        "PaymentCreated",
+        "PaymentProcessing",
+        "PaymentAuthorized",
+        "PaymentPaid",
+        "PaymentFailed",
+        "PaymentCanceled",
+        "PaymentRefunded",
+        "PaymentPendingReconciliation"
+      ]
+    },
+    "paymentId": { "type": "string", "format": "uuid" },
+    "provider": {
+      "type": "string",
+      "enum": ["ASAAS", "MERCADO_PAGO", "PAGBANK", "IUGU", "STRIPE"]
+    },
+    "method": {
+      "type": "string",
+      "enum": ["PIX", "CREDIT_CARD", "BOLETO"]
+    },
+    "amount": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "currency": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 3
+    },
+    "occurredAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}
