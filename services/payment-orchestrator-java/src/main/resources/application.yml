@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: payment-orchestrator-java
+  datasource:
+    url: jdbc:postgresql://localhost:5432/payments
+    username: payments
+    password: payments
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      payment-provider:
+        sliding-window-type: COUNT_BASED
+        sliding-window-size: 20
+        minimum-number-of-calls: 10
+        failure-rate-threshold: 50
+        slow-call-rate-threshold: 50
+        slow-call-duration-threshold: 3s
+        wait-duration-in-open-state: 30s
+        permitted-number-of-calls-in-half-open-state: 5
