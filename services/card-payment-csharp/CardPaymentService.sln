@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardPaymentService", "src\CardPaymentService\CardPaymentService.csproj", "{69063E7B-E678-45D6-8DC1-3B4561013701}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardPaymentService.Tests", "tests\CardPaymentService.Tests\CardPaymentService.Tests.csproj", "{74E16A56-1F87-44C5-8C44-E4C8AD0D94DA}"
+EndProject
+Global
+    GlobalSection(SolutionConfigurationPlatforms) = preSolution
+        Debug|Any CPU = Debug|Any CPU
+        Release|Any CPU = Release|Any CPU
+    EndGlobalSection
+    GlobalSection(ProjectConfigurationPlatforms) = postSolution
+        {69063E7B-E678-45D6-8DC1-3B4561013701}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+        {69063E7B-E678-45D6-8DC1-3B4561013701}.Debug|Any CPU.Build.0 = Debug|Any CPU
+        {69063E7B-E678-45D6-8DC1-3B4561013701}.Release|Any CPU.ActiveCfg = Release|Any CPU
+        {69063E7B-E678-45D6-8DC1-3B4561013701}.Release|Any CPU.Build.0 = Release|Any CPU
+        {74E16A56-1F87-44C5-8C44-E4C8AD0D94DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+        {74E16A56-1F87-44C5-8C44-E4C8AD0D94DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+        {74E16A56-1F87-44C5-8C44-E4C8AD0D94DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+        {74E16A56-1F87-44C5-8C44-E4C8AD0D94DA}.Release|Any CPU.Build.0 = Release|Any CPU
+    EndGlobalSection
+EndGlobal
