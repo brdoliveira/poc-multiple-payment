@@ -14,13 +14,19 @@ import org.springframework.context.annotation.Bean
 @SpringBootApplication
 class Application {
     @Bean
-    fun adapters(): List<PaymentProviderAdapter> = listOf(
-        AsaasAdapter(),
-        MercadoPagoAdapter(),
-        PagBankAdapter(),
-        IuguAdapter(),
-        StripeAdapter(),
-    )
+    fun asaasAdapter(): PaymentProviderAdapter = AsaasAdapter()
+
+    @Bean
+    fun mercadoPagoAdapter(): PaymentProviderAdapter = MercadoPagoAdapter()
+
+    @Bean
+    fun pagBankAdapter(): PaymentProviderAdapter = PagBankAdapter()
+
+    @Bean
+    fun iuguAdapter(): PaymentProviderAdapter = IuguAdapter()
+
+    @Bean
+    fun stripeAdapter(): PaymentProviderAdapter = StripeAdapter()
 
     @Bean
     fun providerRouter(adapters: List<PaymentProviderAdapter>) = ProviderRouter(adapters)
