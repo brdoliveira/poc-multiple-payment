@@ -1,0 +1,9 @@
+.git
+.idea
+.vscode
+target
+build
+.gradle
+bin
+obj
+TestResults
