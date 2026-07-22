@@ -19,7 +19,8 @@ contaminem o dominio principal.
 ### payment-orchestrator-java
 
 Responsavel por receber criacoes de pagamento, validar a idempotencia, manter o
-estado principal e publicar eventos. Ele nao conhece detalhes de cada provedor.
+estado principal e gravar eventos na outbox. Ele nao conhece detalhes de cada
+provedor.
 
 ### pix-boleto-kotlin
 
@@ -31,6 +32,10 @@ capabilities por provedor, como QR Code Pix, vencimento de boleto e registro.
 Responsavel por autorizacao de cartao e escolha do gateway. O servico protege
 contra dupla autorizacao por idempotencia e pode trocar de provedor apenas
 quando a regra de negocio permitir.
+
+Tambem recebe webhooks de provedores nesta PoC, validando uma assinatura HMAC
+generica e salvando o payload bruto no MongoDB. Em producao, esse endpoint pode
+ser extraido para um microsservico dedicado.
 
 ## Estado de pagamento
 
@@ -48,11 +53,16 @@ ou conciliacao. Cartao pode retornar `AUTHORIZED` antes da captura financeira.
 
 Cada servico possui banco proprio. Em producao, a integracao entre bancos e
 eventos deve usar Outbox para evitar gravar a transacao sem publicar o evento.
+Nesta PoC, o orquestrador Java ja grava eventos em `payment_outbox_events` e um
+dispatcher publica mensagens no RabbitMQ.
 
 ## Resiliencia
 
 Cada provedor deve ter seu proprio circuit breaker. Isso evita que falhas no
 Asaas, Mercado Pago, PagBank, iugu ou Stripe gerem cascata sobre os demais.
+
+No Kotlin, as chamadas de Pix/boleto usam Resilience4j. No C#, as autorizacoes
+de cartao usam Polly com retry exponencial e circuit breaker.
 
 ## Observabilidade
 
