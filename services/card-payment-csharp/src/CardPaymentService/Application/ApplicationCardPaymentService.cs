@@ -27,7 +27,7 @@ public sealed class ApplicationCardPaymentService
 
         ICardProviderAdapter adapter = ChooseProvider(command);
         CardPaymentResult result = await adapter.AuthorizeAsync(command, cancellationToken);
-        await idempotencyStore.SaveAsync(command.IdempotencyKey, result, cancellationToken);
+        await idempotencyStore.SaveAsync(command.IdempotencyKey, command, result, cancellationToken);
         return result;
     }
 
@@ -56,7 +56,7 @@ public sealed class ApplicationCardPaymentService
             throw new ArgumentException("amount must be greater than zero", nameof(command));
         }
 
-        if (command.Currency.Length != 3)
+        if (string.IsNullOrWhiteSpace(command.Currency) || command.Currency.Length != 3)
         {
             throw new ArgumentException("currency must use ISO-4217 alpha-3 format", nameof(command));
         }
