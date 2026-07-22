@@ -2,7 +2,7 @@ package com.acme.payments.pixboleto.api
 
 import com.acme.payments.pixboleto.domain.ChargeCommand
 import com.acme.payments.pixboleto.domain.ChargeResult
-import com.acme.payments.pixboleto.provider.ProviderRouter
+import com.acme.payments.pixboleto.application.ChargeService
 import jakarta.validation.Valid
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.PostMapping
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 class PixBoletoController(
-    private val providerRouter: ProviderRouter,
+    private val chargeService: ChargeService,
 ) {
     @PostMapping("/bank-rail/charges")
     @ResponseStatus(HttpStatus.ACCEPTED)
@@ -26,8 +26,6 @@ class PixBoletoController(
             preferredProvider = request.preferredProvider,
         )
 
-        return providerRouter
-            .choose(command.rail, command.preferredProvider)
-            .createCharge(command)
+        return chargeService.create(command)
     }
 }
