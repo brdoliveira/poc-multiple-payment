@@ -6,6 +6,9 @@ import com.acme.payments.orchestrator.domain.PaymentMethod;
 import java.math.BigDecimal;
 import java.util.Locale;
 import java.util.Objects;
+import java.util.Optional;
+import java.util.UUID;
+import org.springframework.transaction.annotation.Transactional;
 
 public class PaymentOrchestratorService {
     private final PaymentRepository paymentRepository;
@@ -22,11 +25,16 @@ public class PaymentOrchestratorService {
         this.outboxEventPublisher = outboxEventPublisher;
     }
 
+    @Transactional
     public Payment create(CreatePaymentCommand command) {
         validate(command);
 
         return paymentRepository.findByIdempotencyKey(command.idempotencyKey())
                 .orElseGet(() -> createNewPayment(command));
+    }
+
+    public Optional<Payment> findById(UUID id) {
+        return paymentRepository.findById(id);
     }
 
     private Payment createNewPayment(CreatePaymentCommand command) {
