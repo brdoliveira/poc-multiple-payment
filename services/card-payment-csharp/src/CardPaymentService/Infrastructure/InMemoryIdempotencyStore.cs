@@ -13,7 +13,7 @@ public sealed class InMemoryIdempotencyStore : IIdempotencyStore
         return Task.FromResult(result);
     }
 
-    public Task SaveAsync(string key, CardPaymentResult result, CancellationToken cancellationToken)
+    public Task SaveAsync(string key, CardPaymentCommand command, CardPaymentResult result, CancellationToken cancellationToken)
     {
         entries.TryAdd(key, result);
         return Task.CompletedTask;
