@@ -1,9 +1,33 @@
 using Acme.Payments.CardPaymentService.Domain;
+using Polly;
 
 namespace Acme.Payments.CardPaymentService.Providers;
 
 public abstract class SimulatedCardAdapter : ICardProviderAdapter
 {
+    private static readonly ResiliencePipeline<CardPaymentResult> ProviderPolicy =
+        new ResiliencePipelineBuilder<CardPaymentResult>()
+            .AddRetry(new Polly.Retry.RetryStrategyOptions<CardPaymentResult>
+            {
+                MaxRetryAttempts = 2,
+                Delay = TimeSpan.FromMilliseconds(200),
+                BackoffType = DelayBackoffType.Exponential,
+                ShouldHandle = new PredicateBuilder<CardPaymentResult>()
+                    .Handle<TimeoutException>()
+                    .Handle<HttpRequestException>()
+            })
+            .AddCircuitBreaker(new Polly.CircuitBreaker.CircuitBreakerStrategyOptions<CardPaymentResult>
+            {
+                FailureRatio = 0.5,
+                MinimumThroughput = 10,
+                SamplingDuration = TimeSpan.FromSeconds(30),
+                BreakDuration = TimeSpan.FromSeconds(30),
+                ShouldHandle = new PredicateBuilder<CardPaymentResult>()
+                    .Handle<TimeoutException>()
+                    .Handle<HttpRequestException>()
+            })
+            .Build();
+
     protected SimulatedCardAdapter(PaymentProvider provider, int maxInstallments)
     {
         Provider = provider;
@@ -26,14 +50,15 @@ public abstract class SimulatedCardAdapter : ICardProviderAdapter
             throw new InvalidOperationException($"{Provider} does not support {command.Installments} installments");
         }
 
-        var result = new CardPaymentResult(
-            Guid.NewGuid(),
-            Provider,
-            CardPaymentStatus.Authorized,
-            $"{Provider}-{command.IdempotencyKey}"
-        );
-
-        return Task.FromResult(result);
+        return ProviderPolicy.ExecuteAsync(
+            _ => ValueTask.FromResult(new CardPaymentResult(
+                Guid.NewGuid(),
+                Provider,
+                CardPaymentStatus.Authorized,
+                $"{Provider}-{command.IdempotencyKey}"
+            )),
+            cancellationToken
+        ).AsTask();
     }
 }
 
