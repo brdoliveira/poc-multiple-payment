@@ -1,4 +1,54 @@
 services:
+  payment-orchestrator-java:
+    build:
+      context: ./services/payment-orchestrator-java
+    container_name: poc-payment-orchestrator-java
+    depends_on:
+      postgres:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/payments
+      SPRING_DATASOURCE_USERNAME: payments
+      SPRING_DATASOURCE_PASSWORD: payments
+      SPRING_RABBITMQ_HOST: rabbitmq
+      SERVER_PORT: 8080
+    ports:
+      - "8080:8080"
+
+  pix-boleto-kotlin:
+    build:
+      context: ./services/pix-boleto-kotlin
+    container_name: poc-payment-pix-boleto-kotlin
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/payments
+      SPRING_DATASOURCE_USERNAME: payments
+      SPRING_DATASOURCE_PASSWORD: payments
+      SERVER_PORT: 8081
+    ports:
+      - "8081:8081"
+
+  card-payment-csharp:
+    build:
+      context: ./services/card-payment-csharp
+    container_name: poc-payment-card-csharp
+    depends_on:
+      postgres:
+        condition: service_healthy
+      mongo:
+        condition: service_healthy
+    environment:
+      ASPNETCORE_URLS: http://+:8082
+      ConnectionStrings__Postgres: Host=postgres;Port=5432;Database=payments;Username=payments;Password=payments
+      ConnectionStrings__Mongo: mongodb://mongo:27017
+      ASPNETCORE_ENVIRONMENT: Development
+    ports:
+      - "8082:8082"
+
   postgres:
     image: postgres:16
     container_name: poc-payment-postgres
@@ -10,6 +60,11 @@ services:
       - "5432:5432"
     volumes:
       - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U payments -d payments"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
 
   mongo:
     image: mongo:7
@@ -19,6 +74,11 @@ services:
     volumes:
       - mongo-data:/data/db
       - ./infra/mongodb/init-payment-operational.js:/docker-entrypoint-initdb.d/init-payment-operational.js:ro
+    healthcheck:
+      test: ["CMD-SHELL", "mongosh --quiet --eval \"db.adminCommand('ping').ok\""]
+      interval: 5s
+      timeout: 5s
+      retries: 10
 
   rabbitmq:
     image: rabbitmq:3.13-management
@@ -26,6 +86,11 @@ services:
     ports:
       - "5672:5672"
       - "15672:15672"
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
 
 volumes:
   postgres-data:
