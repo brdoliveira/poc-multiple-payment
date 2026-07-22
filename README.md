@@ -100,8 +100,8 @@ dotnet run --project src/CardPaymentService
 3. Um evento `PaymentCreated` e publicado via outbox.
 4. O servico especializado processa Pix, boleto ou cartao.
 5. O adapter do provedor chama Asaas, Mercado Pago, PagBank, iugu ou Stripe.
-6. Webhooks e conciliacao confirmam o estado final.
-7. O ledger registra o efeito financeiro de forma auditavel.
+6. Webhooks e conciliacao entram como evolucao para confirmar o estado final.
+7. O ledger entra como evolucao para registro financeiro auditavel.
 
 ## Evolucao historica
 
