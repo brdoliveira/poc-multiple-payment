@@ -14,7 +14,9 @@ Demonstrar uma arquitetura senior para pagamentos:
 - idempotencia;
 - SQL migrations;
 - uso complementar de NoSQL;
-- eventos para processamento assincrono;
+- outbox e eventos para processamento assincrono;
+- webhooks com payload bruto em NoSQL;
+- conciliacao de pagamentos pendentes;
 - testes unitarios por servico;
 - documentacao de evolucao do projeto.
 
@@ -44,6 +46,9 @@ docker compose up -d
 
 Servicos locais:
 
+- Orquestrador Java em `localhost:8080`;
+- Pix/boleto Kotlin em `localhost:8081`;
+- Cartao/Webhook C# em `localhost:8082`;
 - PostgreSQL em `localhost:5432`;
 - MongoDB em `localhost:27017`;
 - RabbitMQ em `localhost:5672` e console em `localhost:15672`.
@@ -97,11 +102,24 @@ dotnet run --project src/CardPaymentService
 
 1. Cliente chama `POST /payments` no orquestrador.
 2. O orquestrador valida `idempotencyKey` e grava o pagamento.
-3. Um evento `PaymentCreated` e publicado via outbox.
+3. Eventos `PaymentCreated` e `PaymentProcessing` sao gravados na outbox.
 4. O servico especializado processa Pix, boleto ou cartao.
 5. O adapter do provedor chama Asaas, Mercado Pago, PagBank, iugu ou Stripe.
-6. Webhooks e conciliacao entram como evolucao para confirmar o estado final.
-7. O ledger entra como evolucao para registro financeiro auditavel.
+6. O dispatcher publica eventos pendentes no RabbitMQ.
+7. Webhooks armazenam payload bruto no MongoDB para auditoria operacional.
+8. A conciliacao reprocessa pagamentos pendentes de confirmacao.
+
+## Endpoints principais
+
+```text
+POST /payments
+GET  /payments/{paymentId}
+POST /reconciliation/payments/{paymentId}
+POST /reconciliation/stale-payments?olderThanMinutes=15
+POST /bank-rail/charges
+POST /cards/authorizations
+POST /webhooks/{provider}
+```
 
 ## Evolucao historica
 
