@@ -35,6 +35,50 @@ dotnet test
 - simulacao de webhook duplicado;
 - conciliacao de pagamento pendente.
 
+## Ferramentas locais
+
+Nesta maquina, a validacao foi feita com JDK 17 instalado no Windows, Maven
+3.9.11 e Gradle 8.8 instalados de forma portavel em `.local-tools`, e .NET SDK
+8 instalado em `C:\Program Files\dotnet`.
+
+Execute os exemplos abaixo a partir da raiz do repositorio.
+
+Java:
+
+```powershell
+$root = (Resolve-Path ".").Path
+$env:JAVA_HOME = "C:\Program Files\Eclipse Adoptium\jdk-17.0.19.10-hotspot"
+$env:PATH = "$env:JAVA_HOME\bin;$root\.local-tools\apache-maven-3.9.11\bin;$env:PATH"
+Push-Location "$root\services\payment-orchestrator-java"
+& "$root\.local-tools\apache-maven-3.9.11\bin\mvn.cmd" "-Dmaven.repo.local=$root\.local-tools\m2" test
+Pop-Location
+```
+
+Kotlin:
+
+```powershell
+$root = (Resolve-Path ".").Path
+$env:JAVA_HOME = "C:\Program Files\Eclipse Adoptium\jdk-17.0.19.10-hotspot"
+$env:GRADLE_USER_HOME = "$root\.local-tools\gradle-home"
+$env:PATH = "$env:JAVA_HOME\bin;$root\.local-tools\gradle-8.8\bin;$env:PATH"
+Push-Location "$root\services\pix-boleto-kotlin"
+& "$root\.local-tools\gradle-8.8\bin\gradle.bat" test --no-daemon
+Pop-Location
+```
+
+C#:
+
+```powershell
+$root = (Resolve-Path ".").Path
+$env:DOTNET_CLI_HOME = "$root\.local-tools\dotnet-home"
+$env:NUGET_PACKAGES = "$root\.local-tools\nuget"
+$env:APPDATA = "$root\.local-tools\appdata"
+$env:LOCALAPPDATA = "$root\.local-tools\localappdata"
+Push-Location "$root\services\card-payment-csharp"
+& "C:\Program Files\dotnet\dotnet.exe" test --no-restore
+Pop-Location
+```
+
 ## Validacao manual
 
 Com os containers no ar:
