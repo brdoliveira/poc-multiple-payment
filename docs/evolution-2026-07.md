@@ -34,3 +34,7 @@ autorizacao, dominio, adapters para gateways e idempotencia.
 Migrations SQL do servico C#, testes unitarios de autorizacao de cartao,
 revisao da documentacao, padronizacao dos contratos e validacao final do
 historico.
+
+Tambem foram adicionados persistencia real em PostgreSQL, outbox com RabbitMQ,
+webhook com MongoDB, conciliacao de pagamentos pendentes, circuit breaker/retry
+nos adapters e Dockerfiles para execucao local.
