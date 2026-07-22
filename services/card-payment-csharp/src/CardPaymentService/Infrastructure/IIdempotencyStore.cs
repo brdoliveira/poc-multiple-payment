@@ -6,5 +6,5 @@ public interface IIdempotencyStore
 {
     Task<CardPaymentResult?> FindAsync(string key, CancellationToken cancellationToken);
 
-    Task SaveAsync(string key, CardPaymentResult result, CancellationToken cancellationToken);
+    Task SaveAsync(string key, CardPaymentCommand command, CardPaymentResult result, CancellationToken cancellationToken);
 }
