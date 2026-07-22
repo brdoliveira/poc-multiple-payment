@@ -24,17 +24,13 @@ Dominio Java, endpoints, idempotencia, outbox e migrations do orquestrador.
 Criacao do `pix-boleto-kotlin`, incluindo router de provedores, capabilities e
 migrations para Pix e boleto.
 
-## 13/07/2026 a 17/07/2026
+## 21/07/2026
 
-Criacao do `card-payment-csharp`, incluindo adapters para gateways, store de
-idempotencia e migrations SQL.
+Criacao do `card-payment-csharp`, incluindo solucao .NET, endpoint de
+autorizacao, dominio, adapters para gateways e idempotencia.
 
-## 18/07/2026 a 20/07/2026
+## 22/07/2026
 
-Testes unitarios para idempotencia, roteamento de provedores e autorizacao de
-cartao.
-
-## 21/07/2026 a 22/07/2026
-
-Revisao da documentacao, padronizacao dos contratos e validacao final do
+Migrations SQL do servico C#, testes unitarios de autorizacao de cartao,
+revisao da documentacao, padronizacao dos contratos e validacao final do
 historico.
