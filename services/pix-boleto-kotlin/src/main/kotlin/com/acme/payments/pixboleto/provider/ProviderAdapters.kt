@@ -3,6 +3,8 @@ package com.acme.payments.pixboleto.provider
 import com.acme.payments.pixboleto.domain.ChargeCommand
 import com.acme.payments.pixboleto.domain.ChargeResult
 import com.acme.payments.pixboleto.domain.PaymentRail
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker
+import io.github.resilience4j.retry.annotation.Retry
 import java.util.UUID
 
 abstract class BankRailAdapter(
@@ -10,6 +12,8 @@ abstract class BankRailAdapter(
 ) : PaymentProviderAdapter {
     override fun supports(rail: PaymentRail) = rail == PaymentRail.PIX || rail == PaymentRail.BOLETO
 
+    @Retry(name = "bank-rail-provider")
+    @CircuitBreaker(name = "bank-rail-provider")
     override fun createCharge(command: ChargeCommand): ChargeResult {
         require(supports(command.rail)) { "$provider does not support ${command.rail}" }
         val action = when (command.rail) {
