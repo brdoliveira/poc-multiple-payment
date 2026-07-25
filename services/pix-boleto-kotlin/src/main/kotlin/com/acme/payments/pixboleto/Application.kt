@@ -9,9 +9,11 @@ import com.acme.payments.pixboleto.provider.ProviderRouter
 import com.acme.payments.pixboleto.provider.StripeAdapter
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
+import org.springframework.amqp.rabbit.annotation.EnableRabbit
 import org.springframework.context.annotation.Bean
 
 @SpringBootApplication
+@EnableRabbit
 class Application {
     @Bean
     fun asaasAdapter(): PaymentProviderAdapter = AsaasAdapter()
