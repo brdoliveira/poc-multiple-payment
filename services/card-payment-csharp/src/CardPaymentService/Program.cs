@@ -1,7 +1,10 @@
 using Acme.Payments.CardPaymentService.Application;
 using Acme.Payments.CardPaymentService.Domain;
 using Acme.Payments.CardPaymentService.Infrastructure;
+using Acme.Payments.CardPaymentService.Messaging;
+using Acme.Payments.CardPaymentService.Observability;
 using Acme.Payments.CardPaymentService.Providers;
+using Acme.Payments.CardPaymentService.Security;
 using Acme.Payments.CardPaymentService.Webhooks;
 using Npgsql;
 using System.Text.Json.Serialization;
@@ -23,12 +26,21 @@ builder.Services.AddSingleton<ICardProviderAdapter, StripeCardAdapter>();
 builder.Services.AddSingleton<ApplicationCardPaymentService>();
 builder.Services.AddSingleton<IWebhookPayloadStore, MongoWebhookPayloadStore>();
 builder.Services.AddSingleton<IWebhookSignatureValidator, WebhookSignatureValidator>();
+builder.Services.Configure<RabbitPaymentConsumerOptions>(builder.Configuration.GetSection("RabbitMq"));
+builder.Services.AddSingleton<PaymentProcessingCommandMapper>();
+builder.Services.AddHostedService<RabbitPaymentConsumer>();
+builder.Services.AddHealthChecks();
 builder.Services.ConfigureHttpJsonOptions(options =>
 {
     options.SerializerOptions.Converters.Add(new JsonStringEnumConverter());
 });
 
 var app = builder.Build();
+
+app.UseMiddleware<CorrelationIdMiddleware>();
+app.UseMiddleware<InternalApiKeyMiddleware>();
+
+app.MapHealthChecks("/health");
 
 app.MapPost("/cards/authorizations", async (
     CardPaymentCommand command,
