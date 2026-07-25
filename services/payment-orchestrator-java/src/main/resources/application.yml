@@ -17,6 +17,14 @@ spring:
 payments:
   outbox:
     dispatch-delay-ms: 5000
+  security:
+    api-key: local-dev-key
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
 
 resilience4j:
   circuitbreaker:

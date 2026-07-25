@@ -50,12 +50,15 @@ public class JdbcOutboxEventPublisher implements OutboxEventPublisher {
             payload.put("eventId", UUID.randomUUID().toString());
             payload.put("eventType", eventType);
             payload.put("paymentId", payment.id().toString());
+            payload.put("idempotencyKey", payment.idempotencyKey());
             payload.put("method", payment.method().name());
             payload.put("amount", payment.amount());
             payload.put("currency", payment.currency());
             payload.put("occurredAt", Instant.now().toString());
             payload.put("version", 1);
-            payload.put("metadata", Map.of("status", payment.status().name()));
+            Map<String, Object> metadata = new LinkedHashMap<>(payment.metadata());
+            metadata.put("status", payment.status().name());
+            payload.put("metadata", metadata);
             if (payment.provider() != null) {
                 payload.put("provider", payment.provider());
             }

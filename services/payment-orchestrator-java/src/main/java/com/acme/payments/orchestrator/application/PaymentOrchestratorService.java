@@ -42,7 +42,8 @@ public class PaymentOrchestratorService {
                 command.idempotencyKey(),
                 command.method(),
                 command.amount(),
-                command.currency().toUpperCase(Locale.ROOT)
+                command.currency().toUpperCase(Locale.ROOT),
+                command.metadata()
         );
 
         boolean reserved = idempotencyStore.reserve(command.idempotencyKey(), created.id());

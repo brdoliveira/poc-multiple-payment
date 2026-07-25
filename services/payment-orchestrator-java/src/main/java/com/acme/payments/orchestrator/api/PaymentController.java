@@ -28,7 +28,11 @@ public class PaymentController {
                 request.idempotencyKey(),
                 request.method(),
                 request.amount(),
-                request.currency()
+                request.currency(),
+                request.preferredProvider(),
+                request.installments(),
+                request.cardToken(),
+                request.dueDate()
         )));
     }
 

@@ -3,7 +3,7 @@
   "$id": "https://example.local/contracts/payment-events.schema.json",
   "title": "Payment Event",
   "type": "object",
-  "required": ["eventId", "eventType", "paymentId", "occurredAt", "version"],
+  "required": ["eventId", "eventType", "paymentId", "idempotencyKey", "occurredAt", "version"],
   "properties": {
     "eventId": { "type": "string", "format": "uuid" },
     "eventType": {
@@ -20,6 +20,11 @@
       ]
     },
     "paymentId": { "type": "string", "format": "uuid" },
+    "idempotencyKey": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 120
+    },
     "provider": {
       "type": "string",
       "enum": ["ASAAS", "MERCADO_PAGO", "PAGBANK", "IUGU", "STRIPE"]
