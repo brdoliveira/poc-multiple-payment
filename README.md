@@ -17,7 +17,11 @@ Demonstrar uma arquitetura senior para pagamentos:
 - outbox e eventos para processamento assincrono;
 - webhooks com payload bruto em NoSQL;
 - conciliacao de pagamentos pendentes;
+- consumidores RabbitMQ por meio de pagamento;
+- filas de retry e DLQ por consumidor;
+- API key interna e correlation-id;
 - testes unitarios por servico;
+- pipeline CI para Java, Kotlin, C# e Docker build;
 - documentacao de evolucao do projeto.
 
 ## Microsservicos
@@ -106,8 +110,10 @@ dotnet run --project src/CardPaymentService
 4. O servico especializado processa Pix, boleto ou cartao.
 5. O adapter do provedor chama Asaas, Mercado Pago, PagBank, iugu ou Stripe.
 6. O dispatcher publica eventos pendentes no RabbitMQ.
-7. Webhooks armazenam payload bruto no MongoDB para auditoria operacional.
-8. A conciliacao reprocessa pagamentos pendentes de confirmacao.
+7. Consumidores Kotlin/C# recebem `PaymentProcessing` em filas proprias.
+8. Falhas transitorias retornam para fila de retry e, apos o limite, seguem para DLQ.
+9. Webhooks armazenam payload bruto no MongoDB para auditoria operacional.
+10. A conciliacao reprocessa pagamentos pendentes de confirmacao.
 
 ## Endpoints principais
 
@@ -119,7 +125,12 @@ POST /reconciliation/stale-payments?olderThanMinutes=15
 POST /bank-rail/charges
 POST /cards/authorizations
 POST /webhooks/{provider}
+GET  /actuator/health
+GET  /health
 ```
+
+Endpoints de negocio exigem `X-Internal-Api-Key`. O valor local padrao da PoC e
+`local-dev-key`. Webhooks usam validacao de assinatura propria.
 
 ## Evolucao historica
 

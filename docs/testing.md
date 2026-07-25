@@ -92,7 +92,8 @@ Criar pagamento:
 ```bash
 curl -X POST http://localhost:8080/payments \
   -H "Content-Type: application/json" \
-  -d '{"idempotencyKey":"checkout-1","method":"PIX","amount":99.90,"currency":"BRL"}'
+  -H "X-Internal-Api-Key: local-dev-key" \
+  -d '{"idempotencyKey":"checkout-1","method":"PIX","amount":99.90,"currency":"BRL","preferredProvider":"ASAAS"}'
 ```
 
 Criar cobranca Pix:
@@ -100,6 +101,7 @@ Criar cobranca Pix:
 ```bash
 curl -X POST http://localhost:8081/bank-rail/charges \
   -H "Content-Type: application/json" \
+  -H "X-Internal-Api-Key: local-dev-key" \
   -d '{"idempotencyKey":"pix-1","rail":"PIX","amount":99.90,"currency":"BRL","preferredProvider":"ASAAS"}'
 ```
 
@@ -108,5 +110,15 @@ Autorizar cartao:
 ```bash
 curl -X POST http://localhost:8082/cards/authorizations \
   -H "Content-Type: application/json" \
+  -H "X-Internal-Api-Key: local-dev-key" \
   -d '{"idempotencyKey":"card-1","amount":199.90,"currency":"BRL","installments":3,"cardToken":"tok_test","preferredProvider":"Stripe"}'
 ```
+
+## CI
+
+O workflow `.github/workflows/ci.yml` executa:
+
+- testes Java com Maven;
+- testes Kotlin com Gradle;
+- restore/testes C# com .NET 8;
+- `docker compose build` apos as suites unitarias.
