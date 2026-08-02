@@ -8,6 +8,13 @@ bin/
 obj/
 TestResults/
 .local-tools/
+.spec/test-results/
+
+# Terraform
+infra/aws/terraform/.terraform/
+infra/aws/terraform/*.tfstate
+infra/aws/terraform/*.tfstate.*
+infra/aws/terraform/crash.log
 
 # IDEs
 .idea/

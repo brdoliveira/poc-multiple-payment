@@ -1,0 +1,49 @@
+{
+  "testCommand": "node .spec/run-tests.mjs",
+  "reporter": "tap",
+  "testGlobs": [
+    "services/payment-orchestrator-java/src/test/java/**",
+    "services/pix-boleto-kotlin/src/test/kotlin/**",
+    "services/card-payment-csharp/tests/**",
+    ".spec/static-tests/**"
+  ],
+  "srcGlobs": [
+    "onpspec.config.json",
+    ".gitignore",
+    ".github/workflows/ci.yml",
+    "README.md",
+    "docs/architecture.md",
+    ".spec/run-tests.mjs",
+    ".spec/static-tests/aws-terraform-payment-poc.test.mjs",
+    "infra/aws/terraform/versions.tf",
+    "infra/aws/terraform/variables.tf",
+    "infra/aws/terraform/locals.tf",
+    "infra/aws/terraform/data.tf",
+    "infra/aws/terraform/network.tf",
+    "infra/aws/terraform/security.tf",
+    "infra/aws/terraform/alb_waf.tf",
+    "infra/aws/terraform/ecs.tf",
+    "infra/aws/terraform/ecr.tf",
+    "infra/aws/terraform/rds.tf",
+    "infra/aws/terraform/documentdb.tf",
+    "infra/aws/terraform/rabbitmq.tf",
+    "infra/aws/terraform/iam.tf",
+    "infra/aws/terraform/observability.tf",
+    "infra/aws/terraform/outputs.tf",
+    "infra/aws/terraform/README.md",
+    "infra/aws/terraform/terraform.tfvars.example"
+  ],
+  "ignoreGlobs": [
+    "node_modules/**",
+    ".git/**",
+    "dist/**",
+    "build/**",
+    "target/**",
+    "bin/**",
+    "obj/**",
+    ".gradle/**",
+    "coverage/**",
+    ".spec/verification/**",
+    ".spec/test-results/**"
+  ]
+}
