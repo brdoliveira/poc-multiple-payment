@@ -1,0 +1,135 @@
+{
+  "runId": "poc-payment-aws-terraform-payment-poc-mslr4km5",
+  "feature": "aws-terraform-payment-poc",
+  "agent": "codex",
+  "modo": "paralelo",
+  "paralelizar": null,
+  "modeloForcado": null,
+  "esforcoForcado": null,
+  "geradoEm": "2026-08-09 12:01",
+  "branchTrabalho": "spec/aws-terraform-payment-poc",
+  "baseDir": ".spec/features/aws-terraform-payment-poc",
+  "specDir": ".spec",
+  "repoName": "poc-payment",
+  "logsDir": "../onp-worktrees/poc-payment-aws-terraform-payment-poc-logs",
+  "ondas": [
+    [
+      "faixa-1",
+      "faixa-2",
+      "faixa-3"
+    ]
+  ],
+  "faixas": [
+    {
+      "id": "faixa-1",
+      "branch": "spec/aws-terraform-payment-poc-faixa-1",
+      "worktree": "../onp-worktrees/poc-payment-aws-terraform-payment-poc-faixa-1",
+      "tarefas": [
+        {
+          "id": "T-001",
+          "titulo": "Reorganizar diretorios e escopo do onp-spec",
+          "modelo": "gpt-5.6-luna",
+          "esforco": "low",
+          "arquivos": [
+            "onpspec.config.json",
+            ".gitignore"
+          ],
+          "refs": [
+            "US-001",
+            "AC-001"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "faixa-2",
+      "branch": "spec/aws-terraform-payment-poc-faixa-2",
+      "worktree": "../onp-worktrees/poc-payment-aws-terraform-payment-poc-faixa-2",
+      "tarefas": [
+        {
+          "id": "T-002",
+          "titulo": "Alinhar ECS, ECR e ALB aos tres servicos reais",
+          "modelo": "gpt-5.6-terra",
+          "esforco": "medium",
+          "arquivos": [
+            "infra/aws/terraform/versions.tf",
+            "infra/aws/terraform/data.tf",
+            "infra/aws/terraform/network.tf",
+            "infra/aws/terraform/locals.tf",
+            "infra/aws/terraform/variables.tf",
+            "infra/aws/terraform/ecs.tf",
+            "infra/aws/terraform/ecr.tf",
+            "infra/aws/terraform/alb_waf.tf",
+            "infra/aws/terraform/security.tf",
+            "infra/aws/terraform/outputs.tf"
+          ],
+          "refs": [
+            "US-002",
+            "AC-002",
+            "US-004",
+            "AC-005"
+          ]
+        },
+        {
+          "id": "T-003",
+          "titulo": "Trocar dependencias genericas por RDS, DocumentDB e Amazon MQ",
+          "modelo": "gpt-5.6-terra",
+          "esforco": "medium",
+          "arquivos": [
+            "infra/aws/terraform/rds.tf",
+            "infra/aws/terraform/documentdb.tf",
+            "infra/aws/terraform/rabbitmq.tf",
+            "infra/aws/terraform/security.tf",
+            "infra/aws/terraform/iam.tf",
+            "infra/aws/terraform/outputs.tf",
+            "infra/aws/terraform/variables.tf",
+            "infra/aws/terraform/locals.tf"
+          ],
+          "refs": [
+            "US-003",
+            "AC-003",
+            "AC-004"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "faixa-3",
+      "branch": "spec/aws-terraform-payment-poc-faixa-3",
+      "worktree": "../onp-worktrees/poc-payment-aws-terraform-payment-poc-faixa-3",
+      "tarefas": [
+        {
+          "id": "T-004",
+          "titulo": "Atualizar documentacao e provas estaticas da arquitetura",
+          "modelo": "gpt-5.6-luna",
+          "esforco": "low",
+          "arquivos": [
+            "infra/aws/terraform/README.md",
+            "infra/aws/terraform/terraform.tfvars.example",
+            "infra/aws/terraform/observability.tf",
+            "docs/architecture.md",
+            "README.md",
+            ".github/workflows/ci.yml",
+            ".spec/run-tests.mjs",
+            ".spec/static-tests/aws-terraform-payment-poc.test.mjs"
+          ],
+          "refs": [
+            "US-001",
+            "AC-001",
+            "US-002",
+            "AC-002",
+            "US-003",
+            "AC-003",
+            "AC-004",
+            "US-004",
+            "AC-005",
+            "AC-006"
+          ]
+        }
+      ]
+    }
+  ],
+  "sequenciais": [],
+  "concluidas": [],
+  "avisos": []
+}
