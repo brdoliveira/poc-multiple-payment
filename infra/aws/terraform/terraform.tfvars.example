@@ -1,0 +1,16 @@
+aws_region   = "sa-east-1"
+project_name = "payments"
+environment  = "dev"
+alert_email  = "seu-email@empresa.com"
+
+internal_api_key = "substitua-por-uma-chave-segura"
+
+# Apos criar e publicar as imagens no ECR:
+container_images = {
+  "payment-orchestrator-java" = "123456789012.dkr.ecr.sa-east-1.amazonaws.com/payments-dev/payment-orchestrator-java:1.0.0"
+  "pix-boleto-kotlin"         = "123456789012.dkr.ecr.sa-east-1.amazonaws.com/payments-dev/pix-boleto-kotlin:1.0.0"
+  "card-payment-csharp"       = "123456789012.dkr.ecr.sa-east-1.amazonaws.com/payments-dev/card-payment-csharp:1.0.0"
+}
+
+# As credenciais de PostgreSQL, DocumentDB e RabbitMQ sao geradas e armazenadas
+# no Secrets Manager durante o apply.
