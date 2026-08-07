@@ -1,0 +1,42 @@
+{
+  "feature": "aws-terraform-payment-poc",
+  "timestamp": "2026-08-09T11:58:07.016Z",
+  "gitRev": null,
+  "command": "node .spec/run-tests.mjs",
+  "reporter": "tap",
+  "exitCode": 0,
+  "testsParsed": 18,
+  "results": {
+    "AC-001": {
+      "status": "pass",
+      "testName": "aws-terraform-payment-poc-static Terraform AWS esta em infra/aws/terraform e a raiz antiga nao existe @spec:AC-001",
+      "method": "tap"
+    },
+    "AC-002": {
+      "status": "pass",
+      "testName": "aws-terraform-payment-poc-static ECS e ECR declaram somente os tres microsservicos reais da PoC @spec:AC-002",
+      "method": "tap"
+    },
+    "AC-003": {
+      "status": "pass",
+      "testName": "aws-terraform-payment-poc-static Terraform provisiona PostgreSQL, DocumentDB e Amazon MQ sem filas genericas @spec:AC-003",
+      "method": "tap"
+    },
+    "AC-004": {
+      "status": "pass",
+      "testName": "aws-terraform-payment-poc-static Task definitions exportam configuracao para Spring e .NET @spec:AC-004",
+      "method": "tap"
+    },
+    "AC-005": {
+      "status": "pass",
+      "testName": "aws-terraform-payment-poc-static ALB roteia as rotas de pagamentos para os microsservicos corretos @spec:AC-005",
+      "method": "tap"
+    },
+    "AC-006": {
+      "status": "pass",
+      "testName": "aws-terraform-payment-poc-static Documentacao AWS aponta para a estrutura nova e nao para workloads legados @spec:AC-006",
+      "method": "tap"
+    }
+  },
+  "principles": {}
+}

@@ -1,0 +1,1625 @@
+{
+  "schema": 1,
+  "sinais": {
+    "GLOB_SEM_ARQUIVOS::—::P-002": {
+      "codigo": "GLOB_SEM_ARQUIVOS",
+      "feature": "—",
+      "ref": "P-002",
+      "ocorrencias": 2,
+      "primeiraVez": "2026-08-09T11:12:18.101Z",
+      "ultimaVez": "2026-08-09T11:19:57.564Z",
+      "gitRev": null
+    },
+    "ARQUIVO_INEXISTENTE::aws-terraform-payment-poc::T-001": {
+      "codigo": "ARQUIVO_INEXISTENTE",
+      "feature": "aws-terraform-payment-poc",
+      "ref": "T-001",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.483Z",
+      "ultimaVez": "2026-08-09T11:36:13.483Z",
+      "gitRev": null
+    },
+    "ARQUIVO_INEXISTENTE::aws-terraform-payment-poc::T-002": {
+      "codigo": "ARQUIVO_INEXISTENTE",
+      "feature": "aws-terraform-payment-poc",
+      "ref": "T-002",
+      "ocorrencias": 14,
+      "primeiraVez": "2026-08-09T11:36:13.483Z",
+      "ultimaVez": "2026-08-09T11:37:22.732Z",
+      "gitRev": null
+    },
+    "ARQUIVO_INEXISTENTE::aws-terraform-payment-poc::T-003": {
+      "codigo": "ARQUIVO_INEXISTENTE",
+      "feature": "aws-terraform-payment-poc",
+      "ref": "T-003",
+      "ocorrencias": 16,
+      "primeiraVez": "2026-08-09T11:36:13.483Z",
+      "ultimaVez": "2026-08-09T11:37:22.732Z",
+      "gitRev": null
+    },
+    "ARQUIVO_INEXISTENTE::aws-terraform-payment-poc::T-004": {
+      "codigo": "ARQUIVO_INEXISTENTE",
+      "feature": "aws-terraform-payment-poc",
+      "ref": "T-004",
+      "ocorrencias": 6,
+      "primeiraVez": "2026-08-09T11:36:13.483Z",
+      "ultimaVez": "2026-08-09T11:37:22.732Z",
+      "gitRev": null
+    },
+    "AC_SEM_TESTE::aws-terraform-payment-poc::AC-001": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "aws-terraform-payment-poc",
+      "ref": "AC-001",
+      "ocorrencias": 2,
+      "primeiraVez": "2026-08-09T11:36:13.483Z",
+      "ultimaVez": "2026-08-09T11:37:22.732Z",
+      "gitRev": null
+    },
+    "AC_SEM_TESTE::aws-terraform-payment-poc::AC-002": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "aws-terraform-payment-poc",
+      "ref": "AC-002",
+      "ocorrencias": 2,
+      "primeiraVez": "2026-08-09T11:36:13.483Z",
+      "ultimaVez": "2026-08-09T11:37:22.732Z",
+      "gitRev": null
+    },
+    "AC_SEM_TESTE::aws-terraform-payment-poc::AC-003": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "aws-terraform-payment-poc",
+      "ref": "AC-003",
+      "ocorrencias": 2,
+      "primeiraVez": "2026-08-09T11:36:13.483Z",
+      "ultimaVez": "2026-08-09T11:37:22.732Z",
+      "gitRev": null
+    },
+    "AC_SEM_TESTE::aws-terraform-payment-poc::AC-004": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "aws-terraform-payment-poc",
+      "ref": "AC-004",
+      "ocorrencias": 2,
+      "primeiraVez": "2026-08-09T11:36:13.483Z",
+      "ultimaVez": "2026-08-09T11:37:22.732Z",
+      "gitRev": null
+    },
+    "AC_SEM_TESTE::aws-terraform-payment-poc::AC-005": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "aws-terraform-payment-poc",
+      "ref": "AC-005",
+      "ocorrencias": 2,
+      "primeiraVez": "2026-08-09T11:36:13.483Z",
+      "ultimaVez": "2026-08-09T11:37:22.732Z",
+      "gitRev": null
+    },
+    "AC_SEM_TESTE::aws-terraform-payment-poc::AC-006": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "aws-terraform-payment-poc",
+      "ref": "AC-006",
+      "ocorrencias": 2,
+      "primeiraVez": "2026-08-09T11:36:13.483Z",
+      "ultimaVez": "2026-08-09T11:37:22.732Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::contracts/payment-events.schema.json": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "contracts/payment-events.schema.json",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.483Z",
+      "ultimaVez": "2026-08-09T11:36:13.483Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::docker-compose.yml": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "docker-compose.yml",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.483Z",
+      "ultimaVez": "2026-08-09T11:36:13.483Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::infra/mongodb/init-payment-operational.js": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "infra/mongodb/init-payment-operational.js",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.483Z",
+      "ultimaVez": "2026-08-09T11:36:13.483Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/Application/ApplicationCardPaymentService.cs": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/Application/ApplicationCardPaymentService.cs",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.483Z",
+      "ultimaVez": "2026-08-09T11:36:13.483Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/CardPaymentService.csproj": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/CardPaymentService.csproj",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.483Z",
+      "ultimaVez": "2026-08-09T11:36:13.483Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/Domain/CardPaymentCommand.cs": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/Domain/CardPaymentCommand.cs",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.483Z",
+      "ultimaVez": "2026-08-09T11:36:13.483Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/Domain/CardPaymentResult.cs": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/Domain/CardPaymentResult.cs",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.483Z",
+      "ultimaVez": "2026-08-09T11:36:13.483Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/Domain/CardPaymentStatus.cs": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/Domain/CardPaymentStatus.cs",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.483Z",
+      "ultimaVez": "2026-08-09T11:36:13.483Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/Domain/PaymentProvider.cs": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/Domain/PaymentProvider.cs",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.483Z",
+      "ultimaVez": "2026-08-09T11:36:13.483Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/Infrastructure/DatabaseMigrator.cs": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/Infrastructure/DatabaseMigrator.cs",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.483Z",
+      "ultimaVez": "2026-08-09T11:36:13.483Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/Infrastructure/IIdempotencyStore.cs": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/Infrastructure/IIdempotencyStore.cs",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.483Z",
+      "ultimaVez": "2026-08-09T11:36:13.483Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/Infrastructure/InMemoryIdempotencyStore.cs": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/Infrastructure/InMemoryIdempotencyStore.cs",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.483Z",
+      "ultimaVez": "2026-08-09T11:36:13.483Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/Infrastructure/PostgresIdempotencyStore.cs": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/Infrastructure/PostgresIdempotencyStore.cs",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.483Z",
+      "ultimaVez": "2026-08-09T11:36:13.483Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/Messaging/PaymentProcessingCommandMapper.cs": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/Messaging/PaymentProcessingCommandMapper.cs",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.483Z",
+      "ultimaVez": "2026-08-09T11:36:13.483Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/Messaging/PaymentProcessingEvent.cs": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/Messaging/PaymentProcessingEvent.cs",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.483Z",
+      "ultimaVez": "2026-08-09T11:36:13.483Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/Messaging/RabbitPaymentConsumer.cs": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/Messaging/RabbitPaymentConsumer.cs",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.483Z",
+      "ultimaVez": "2026-08-09T11:36:13.483Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/Messaging/RabbitPaymentConsumerOptions.cs": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/Messaging/RabbitPaymentConsumerOptions.cs",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.483Z",
+      "ultimaVez": "2026-08-09T11:36:13.483Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/Messaging/RabbitPaymentTopology.cs": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/Messaging/RabbitPaymentTopology.cs",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.483Z",
+      "ultimaVez": "2026-08-09T11:36:13.483Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/Migrations/20260715_001_create_card_payment_tables.sql": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/Migrations/20260715_001_create_card_payment_tables.sql",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.483Z",
+      "ultimaVez": "2026-08-09T11:36:13.483Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/Observability/CorrelationIdMiddleware.cs": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/Observability/CorrelationIdMiddleware.cs",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.483Z",
+      "ultimaVez": "2026-08-09T11:36:13.483Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/Program.cs": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/Program.cs",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.483Z",
+      "ultimaVez": "2026-08-09T11:36:13.483Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/Providers/CardProviderAdapters.cs": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/Providers/CardProviderAdapters.cs",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.483Z",
+      "ultimaVez": "2026-08-09T11:36:13.483Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/Providers/ICardProviderAdapter.cs": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/Providers/ICardProviderAdapter.cs",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.483Z",
+      "ultimaVez": "2026-08-09T11:36:13.483Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/Security/InternalApiKeyMiddleware.cs": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/Security/InternalApiKeyMiddleware.cs",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.483Z",
+      "ultimaVez": "2026-08-09T11:36:13.483Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/Webhooks/IWebhookPayloadStore.cs": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/Webhooks/IWebhookPayloadStore.cs",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.483Z",
+      "ultimaVez": "2026-08-09T11:36:13.483Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/Webhooks/IWebhookSignatureValidator.cs": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/Webhooks/IWebhookSignatureValidator.cs",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.483Z",
+      "ultimaVez": "2026-08-09T11:36:13.483Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/Webhooks/MongoWebhookPayloadStore.cs": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/Webhooks/MongoWebhookPayloadStore.cs",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.483Z",
+      "ultimaVez": "2026-08-09T11:36:13.483Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/Webhooks/ProviderWebhookPayload.cs": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/Webhooks/ProviderWebhookPayload.cs",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.483Z",
+      "ultimaVez": "2026-08-09T11:36:13.483Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/Webhooks/WebhookSignatureValidator.cs": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/Webhooks/WebhookSignatureValidator.cs",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.483Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/appsettings.json": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/appsettings.json",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/AWSSDK.Core.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/AWSSDK.Core.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/AWSSDK.SecurityToken.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/AWSSDK.SecurityToken.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/Azure.Core.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/Azure.Core.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/Azure.Identity.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/Azure.Identity.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/CardPaymentService.deps.json": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/CardPaymentService.deps.json",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/CardPaymentService.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/CardPaymentService.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/CardPaymentService.exe": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/CardPaymentService.exe",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/CardPaymentService.pdb": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/CardPaymentService.pdb",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/CardPaymentService.runtimeconfig.json": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/CardPaymentService.runtimeconfig.json",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/DnsClient.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/DnsClient.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/Microsoft.Azure.Services.AppAuthentication.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/Microsoft.Azure.Services.AppAuthentication.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/Microsoft.Bcl.AsyncInterfaces.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/Microsoft.Bcl.AsyncInterfaces.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/Microsoft.Data.SqlClient.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/Microsoft.Data.SqlClient.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/Microsoft.Identity.Client.Extensions.Msal.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/Microsoft.Identity.Client.Extensions.Msal.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/Microsoft.Identity.Client.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/Microsoft.Identity.Client.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/Microsoft.IdentityModel.Abstractions.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/Microsoft.IdentityModel.Abstractions.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/Microsoft.IdentityModel.Clients.ActiveDirectory.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/Microsoft.IdentityModel.Clients.ActiveDirectory.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/Microsoft.IdentityModel.JsonWebTokens.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/Microsoft.IdentityModel.JsonWebTokens.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/Microsoft.IdentityModel.Logging.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/Microsoft.IdentityModel.Logging.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/Microsoft.IdentityModel.Tokens.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/Microsoft.IdentityModel.Tokens.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/Microsoft.SqlServer.Server.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/Microsoft.SqlServer.Server.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/Microsoft.Win32.SystemEvents.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/Microsoft.Win32.SystemEvents.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/MongoDB.Bson.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/MongoDB.Bson.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/MongoDB.Driver.Core.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/MongoDB.Driver.Core.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/MongoDB.Driver.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/MongoDB.Driver.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/MongoDB.Libmongocrypt.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/MongoDB.Libmongocrypt.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/Npgsql.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/Npgsql.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/Polly.Core.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/Polly.Core.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/Polly.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/Polly.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/RabbitMQ.Client.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/RabbitMQ.Client.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/SharpCompress.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/SharpCompress.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/Snappier.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/Snappier.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/System.Configuration.ConfigurationManager.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/System.Configuration.ConfigurationManager.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/System.Drawing.Common.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/System.Drawing.Common.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/System.IdentityModel.Tokens.Jwt.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/System.IdentityModel.Tokens.Jwt.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/System.Memory.Data.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/System.Memory.Data.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/System.Runtime.Caching.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/System.Runtime.Caching.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/System.Security.Cryptography.ProtectedData.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/System.Security.Cryptography.ProtectedData.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/System.Security.Permissions.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/System.Security.Permissions.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/System.Windows.Extensions.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/System.Windows.Extensions.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/ZstdSharp.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/ZstdSharp.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/appsettings.json": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/appsettings.json",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/dbup-core.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/dbup-core.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/dbup-postgresql.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/dbup-postgresql.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/dbup-sqlserver.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/dbup-sqlserver.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/runtimes/linux/native/libmongocrypt.so": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/runtimes/linux/native/libmongocrypt.so",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/runtimes/osx/native/libmongocrypt.dylib": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/runtimes/osx/native/libmongocrypt.dylib",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/runtimes/unix/lib/net6.0/Microsoft.Data.SqlClient.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/runtimes/unix/lib/net6.0/Microsoft.Data.SqlClient.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/runtimes/unix/lib/net6.0/System.Drawing.Common.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/runtimes/unix/lib/net6.0/System.Drawing.Common.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/runtimes/win/lib/net6.0/Microsoft.Data.SqlClient.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/runtimes/win/lib/net6.0/Microsoft.Data.SqlClient.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/runtimes/win/lib/net6.0/Microsoft.Win32.SystemEvents.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/runtimes/win/lib/net6.0/Microsoft.Win32.SystemEvents.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/runtimes/win/lib/net6.0/System.Drawing.Common.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/runtimes/win/lib/net6.0/System.Drawing.Common.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/runtimes/win/lib/net6.0/System.Runtime.Caching.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/runtimes/win/lib/net6.0/System.Runtime.Caching.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/runtimes/win/lib/net6.0/System.Security.Cryptography.ProtectedData.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/runtimes/win/lib/net6.0/System.Security.Cryptography.ProtectedData.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/runtimes/win/lib/net6.0/System.Windows.Extensions.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/runtimes/win/lib/net6.0/System.Windows.Extensions.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/runtimes/win/native/mongocrypt.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/bin/Debug/net8.0/runtimes/win/native/mongocrypt.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/obj/CardPaymentService.csproj.nuget.dgspec.json": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/obj/CardPaymentService.csproj.nuget.dgspec.json",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/obj/CardPaymentService.csproj.nuget.g.props": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/obj/CardPaymentService.csproj.nuget.g.props",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/obj/CardPaymentService.csproj.nuget.g.targets": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/obj/CardPaymentService.csproj.nuget.g.targets",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/obj/Debug/net8.0/CardPaym.8D30BFF6.Up2Date": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/obj/Debug/net8.0/CardPaym.8D30BFF6.Up2Date",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/obj/Debug/net8.0/CardPaymentService.AssemblyInfo.cs": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/obj/Debug/net8.0/CardPaymentService.AssemblyInfo.cs",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/obj/Debug/net8.0/CardPaymentService.AssemblyInfoInputs.cache": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/obj/Debug/net8.0/CardPaymentService.AssemblyInfoInputs.cache",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/obj/Debug/net8.0/CardPaymentService.GeneratedMSBuildEditorConfig.editorconfig": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/obj/Debug/net8.0/CardPaymentService.GeneratedMSBuildEditorConfig.editorconfig",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/obj/Debug/net8.0/CardPaymentService.GlobalUsings.g.cs": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/obj/Debug/net8.0/CardPaymentService.GlobalUsings.g.cs",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/obj/Debug/net8.0/CardPaymentService.MvcApplicationPartsAssemblyInfo.cache": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/obj/Debug/net8.0/CardPaymentService.MvcApplicationPartsAssemblyInfo.cache",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/obj/Debug/net8.0/CardPaymentService.assets.cache": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/obj/Debug/net8.0/CardPaymentService.assets.cache",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/obj/Debug/net8.0/CardPaymentService.csproj.AssemblyReference.cache": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/obj/Debug/net8.0/CardPaymentService.csproj.AssemblyReference.cache",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/obj/Debug/net8.0/CardPaymentService.csproj.CoreCompileInputs.cache": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/obj/Debug/net8.0/CardPaymentService.csproj.CoreCompileInputs.cache",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/obj/Debug/net8.0/CardPaymentService.csproj.FileListAbsolute.txt": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/obj/Debug/net8.0/CardPaymentService.csproj.FileListAbsolute.txt",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/obj/Debug/net8.0/CardPaymentService.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/obj/Debug/net8.0/CardPaymentService.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/obj/Debug/net8.0/CardPaymentService.genruntimeconfig.cache": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/obj/Debug/net8.0/CardPaymentService.genruntimeconfig.cache",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/obj/Debug/net8.0/CardPaymentService.pdb": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/obj/Debug/net8.0/CardPaymentService.pdb",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/obj/Debug/net8.0/CardPaymentService.sourcelink.json": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/obj/Debug/net8.0/CardPaymentService.sourcelink.json",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/obj/Debug/net8.0/apphost.exe": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/obj/Debug/net8.0/apphost.exe",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/obj/Debug/net8.0/ref/CardPaymentService.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/obj/Debug/net8.0/ref/CardPaymentService.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/obj/Debug/net8.0/refint/CardPaymentService.dll": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/obj/Debug/net8.0/refint/CardPaymentService.dll",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/obj/Debug/net8.0/staticwebassets.build.json": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/obj/Debug/net8.0/staticwebassets.build.json",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/obj/Debug/net8.0/staticwebassets/msbuild.build.CardPaymentService.props": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/obj/Debug/net8.0/staticwebassets/msbuild.build.CardPaymentService.props",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.CardPaymentService.props": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.CardPaymentService.props",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.CardPaymentService.props": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.CardPaymentService.props",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/obj/project.assets.json": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/obj/project.assets.json",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/card-payment-csharp/src/CardPaymentService/obj/project.nuget.cache": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/card-payment-csharp/src/CardPaymentService/obj/project.nuget.cache",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/payment-orchestrator-java/src/main/java/com/acme/payments/orchestrator/Application.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/payment-orchestrator-java/src/main/java/com/acme/payments/orchestrator/Application.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/payment-orchestrator-java/src/main/java/com/acme/payments/orchestrator/api/CreatePaymentRequest.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/payment-orchestrator-java/src/main/java/com/acme/payments/orchestrator/api/CreatePaymentRequest.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/payment-orchestrator-java/src/main/java/com/acme/payments/orchestrator/api/PaymentController.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/payment-orchestrator-java/src/main/java/com/acme/payments/orchestrator/api/PaymentController.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/payment-orchestrator-java/src/main/java/com/acme/payments/orchestrator/api/PaymentNotFoundException.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/payment-orchestrator-java/src/main/java/com/acme/payments/orchestrator/api/PaymentNotFoundException.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/payment-orchestrator-java/src/main/java/com/acme/payments/orchestrator/api/PaymentResponse.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/payment-orchestrator-java/src/main/java/com/acme/payments/orchestrator/api/PaymentResponse.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/payment-orchestrator-java/src/main/java/com/acme/payments/orchestrator/api/ReconciliationController.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/payment-orchestrator-java/src/main/java/com/acme/payments/orchestrator/api/ReconciliationController.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/payment-orchestrator-java/src/main/java/com/acme/payments/orchestrator/api/ReconciliationResponse.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/payment-orchestrator-java/src/main/java/com/acme/payments/orchestrator/api/ReconciliationResponse.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/payment-orchestrator-java/src/main/java/com/acme/payments/orchestrator/application/CreatePaymentCommand.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/payment-orchestrator-java/src/main/java/com/acme/payments/orchestrator/application/CreatePaymentCommand.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/payment-orchestrator-java/src/main/java/com/acme/payments/orchestrator/application/IdempotencyStore.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/payment-orchestrator-java/src/main/java/com/acme/payments/orchestrator/application/IdempotencyStore.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/payment-orchestrator-java/src/main/java/com/acme/payments/orchestrator/application/OutboxEventPublisher.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/payment-orchestrator-java/src/main/java/com/acme/payments/orchestrator/application/OutboxEventPublisher.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/payment-orchestrator-java/src/main/java/com/acme/payments/orchestrator/application/PaymentOrchestratorService.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/payment-orchestrator-java/src/main/java/com/acme/payments/orchestrator/application/PaymentOrchestratorService.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/payment-orchestrator-java/src/main/java/com/acme/payments/orchestrator/application/PaymentReconciliationService.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/payment-orchestrator-java/src/main/java/com/acme/payments/orchestrator/application/PaymentReconciliationService.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/payment-orchestrator-java/src/main/java/com/acme/payments/orchestrator/application/PaymentRepository.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/payment-orchestrator-java/src/main/java/com/acme/payments/orchestrator/application/PaymentRepository.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/payment-orchestrator-java/src/main/java/com/acme/payments/orchestrator/domain/Payment.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/payment-orchestrator-java/src/main/java/com/acme/payments/orchestrator/domain/Payment.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/payment-orchestrator-java/src/main/java/com/acme/payments/orchestrator/domain/PaymentMethod.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/payment-orchestrator-java/src/main/java/com/acme/payments/orchestrator/domain/PaymentMethod.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/payment-orchestrator-java/src/main/java/com/acme/payments/orchestrator/domain/PaymentStatus.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/payment-orchestrator-java/src/main/java/com/acme/payments/orchestrator/domain/PaymentStatus.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/payment-orchestrator-java/src/main/java/com/acme/payments/orchestrator/infrastructure/ApiKeyAuthenticationFilter.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/payment-orchestrator-java/src/main/java/com/acme/payments/orchestrator/infrastructure/ApiKeyAuthenticationFilter.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/payment-orchestrator-java/src/main/java/com/acme/payments/orchestrator/infrastructure/CorrelationIdFilter.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/payment-orchestrator-java/src/main/java/com/acme/payments/orchestrator/infrastructure/CorrelationIdFilter.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/payment-orchestrator-java/src/main/java/com/acme/payments/orchestrator/infrastructure/InMemoryIdempotencyStore.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/payment-orchestrator-java/src/main/java/com/acme/payments/orchestrator/infrastructure/InMemoryIdempotencyStore.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/payment-orchestrator-java/src/main/java/com/acme/payments/orchestrator/infrastructure/InMemoryOutboxEventPublisher.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/payment-orchestrator-java/src/main/java/com/acme/payments/orchestrator/infrastructure/InMemoryOutboxEventPublisher.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/payment-orchestrator-java/src/main/java/com/acme/payments/orchestrator/infrastructure/InMemoryPaymentRepository.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/payment-orchestrator-java/src/main/java/com/acme/payments/orchestrator/infrastructure/InMemoryPaymentRepository.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/payment-orchestrator-java/src/main/java/com/acme/payments/orchestrator/infrastructure/JdbcIdempotencyStore.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/payment-orchestrator-java/src/main/java/com/acme/payments/orchestrator/infrastructure/JdbcIdempotencyStore.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/payment-orchestrator-java/src/main/java/com/acme/payments/orchestrator/infrastructure/JdbcOutboxEventPublisher.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/payment-orchestrator-java/src/main/java/com/acme/payments/orchestrator/infrastructure/JdbcOutboxEventPublisher.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/payment-orchestrator-java/src/main/java/com/acme/payments/orchestrator/infrastructure/JdbcPaymentRepository.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/payment-orchestrator-java/src/main/java/com/acme/payments/orchestrator/infrastructure/JdbcPaymentRepository.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/payment-orchestrator-java/src/main/java/com/acme/payments/orchestrator/infrastructure/PaymentOutboxDispatcher.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/payment-orchestrator-java/src/main/java/com/acme/payments/orchestrator/infrastructure/PaymentOutboxDispatcher.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/payment-orchestrator-java/src/main/java/com/acme/payments/orchestrator/infrastructure/RabbitPaymentTopology.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/payment-orchestrator-java/src/main/java/com/acme/payments/orchestrator/infrastructure/RabbitPaymentTopology.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/pix-boleto-kotlin/src/main/kotlin/com/acme/payments/pixboleto/Application.kt": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/pix-boleto-kotlin/src/main/kotlin/com/acme/payments/pixboleto/Application.kt",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/pix-boleto-kotlin/src/main/kotlin/com/acme/payments/pixboleto/api/ChargeRequest.kt": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/pix-boleto-kotlin/src/main/kotlin/com/acme/payments/pixboleto/api/ChargeRequest.kt",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/pix-boleto-kotlin/src/main/kotlin/com/acme/payments/pixboleto/api/PixBoletoController.kt": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/pix-boleto-kotlin/src/main/kotlin/com/acme/payments/pixboleto/api/PixBoletoController.kt",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/pix-boleto-kotlin/src/main/kotlin/com/acme/payments/pixboleto/application/ChargeRepository.kt": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/pix-boleto-kotlin/src/main/kotlin/com/acme/payments/pixboleto/application/ChargeRepository.kt",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/pix-boleto-kotlin/src/main/kotlin/com/acme/payments/pixboleto/application/ChargeService.kt": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/pix-boleto-kotlin/src/main/kotlin/com/acme/payments/pixboleto/application/ChargeService.kt",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/pix-boleto-kotlin/src/main/kotlin/com/acme/payments/pixboleto/domain/ChargeCommand.kt": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/pix-boleto-kotlin/src/main/kotlin/com/acme/payments/pixboleto/domain/ChargeCommand.kt",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/pix-boleto-kotlin/src/main/kotlin/com/acme/payments/pixboleto/domain/ChargeResult.kt": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/pix-boleto-kotlin/src/main/kotlin/com/acme/payments/pixboleto/domain/ChargeResult.kt",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/pix-boleto-kotlin/src/main/kotlin/com/acme/payments/pixboleto/domain/PaymentRail.kt": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/pix-boleto-kotlin/src/main/kotlin/com/acme/payments/pixboleto/domain/PaymentRail.kt",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/pix-boleto-kotlin/src/main/kotlin/com/acme/payments/pixboleto/infrastructure/ApiKeyAuthenticationFilter.kt": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/pix-boleto-kotlin/src/main/kotlin/com/acme/payments/pixboleto/infrastructure/ApiKeyAuthenticationFilter.kt",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/pix-boleto-kotlin/src/main/kotlin/com/acme/payments/pixboleto/infrastructure/CorrelationIdFilter.kt": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/pix-boleto-kotlin/src/main/kotlin/com/acme/payments/pixboleto/infrastructure/CorrelationIdFilter.kt",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/pix-boleto-kotlin/src/main/kotlin/com/acme/payments/pixboleto/infrastructure/JdbcChargeRepository.kt": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/pix-boleto-kotlin/src/main/kotlin/com/acme/payments/pixboleto/infrastructure/JdbcChargeRepository.kt",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/pix-boleto-kotlin/src/main/kotlin/com/acme/payments/pixboleto/messaging/PaymentEventListener.kt": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/pix-boleto-kotlin/src/main/kotlin/com/acme/payments/pixboleto/messaging/PaymentEventListener.kt",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/pix-boleto-kotlin/src/main/kotlin/com/acme/payments/pixboleto/messaging/PaymentProcessingCommandMapper.kt": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/pix-boleto-kotlin/src/main/kotlin/com/acme/payments/pixboleto/messaging/PaymentProcessingCommandMapper.kt",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/pix-boleto-kotlin/src/main/kotlin/com/acme/payments/pixboleto/messaging/PaymentProcessingEvent.kt": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/pix-boleto-kotlin/src/main/kotlin/com/acme/payments/pixboleto/messaging/PaymentProcessingEvent.kt",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/pix-boleto-kotlin/src/main/kotlin/com/acme/payments/pixboleto/messaging/RabbitPaymentConsumerTopology.kt": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/pix-boleto-kotlin/src/main/kotlin/com/acme/payments/pixboleto/messaging/RabbitPaymentConsumerTopology.kt",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/pix-boleto-kotlin/src/main/kotlin/com/acme/payments/pixboleto/messaging/RabbitRetrySupport.kt": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/pix-boleto-kotlin/src/main/kotlin/com/acme/payments/pixboleto/messaging/RabbitRetrySupport.kt",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/pix-boleto-kotlin/src/main/kotlin/com/acme/payments/pixboleto/provider/PaymentProvider.kt": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/pix-boleto-kotlin/src/main/kotlin/com/acme/payments/pixboleto/provider/PaymentProvider.kt",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/pix-boleto-kotlin/src/main/kotlin/com/acme/payments/pixboleto/provider/PaymentProviderAdapter.kt": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/pix-boleto-kotlin/src/main/kotlin/com/acme/payments/pixboleto/provider/PaymentProviderAdapter.kt",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/pix-boleto-kotlin/src/main/kotlin/com/acme/payments/pixboleto/provider/ProviderAdapters.kt": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/pix-boleto-kotlin/src/main/kotlin/com/acme/payments/pixboleto/provider/ProviderAdapters.kt",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::services/pix-boleto-kotlin/src/main/kotlin/com/acme/payments/pixboleto/provider/ProviderRouter.kt": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "services/pix-boleto-kotlin/src/main/kotlin/com/acme/payments/pixboleto/provider/ProviderRouter.kt",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:36:13.484Z",
+      "ultimaVez": "2026-08-09T11:36:13.484Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::infra/aws/terraform/data.tf": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "infra/aws/terraform/data.tf",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:58:27.819Z",
+      "ultimaVez": "2026-08-09T11:58:27.820Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::infra/aws/terraform/network.tf": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "infra/aws/terraform/network.tf",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:58:27.820Z",
+      "ultimaVez": "2026-08-09T11:58:27.820Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::infra/aws/terraform/observability.tf": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "infra/aws/terraform/observability.tf",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:58:27.820Z",
+      "ultimaVez": "2026-08-09T11:58:27.820Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::infra/aws/terraform/versions.tf": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "infra/aws/terraform/versions.tf",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-09T11:58:27.820Z",
+      "ultimaVez": "2026-08-09T11:58:27.820Z",
+      "gitRev": null
+    }
+  }
+}
