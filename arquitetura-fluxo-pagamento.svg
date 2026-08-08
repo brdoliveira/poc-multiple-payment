@@ -1,0 +1,229 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1900" height="1320" viewBox="0 0 1900 1320" role="img" aria-labelledby="title desc">
+  <title id="title">Arquitetura AWS para billing, pagamento, reembolso e jobs</title>
+  <desc id="desc">Diagrama AWS com Load Balancer, billing-ws, billing-core, RDS Aurora, outbox, SQS FIFO, payment-orchestrador, jobs Lambda, EventBridge, Firebase, bucket S3, reembolso, upgrade de plano, observabilidade e seguranca.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#334e68"/>
+    </marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#98a2b3" flood-opacity="0.24"/>
+    </filter>
+    <style>
+      .page { fill: #f7f8fb; }
+      .title { font: 700 34px Arial, sans-serif; fill: #16191f; }
+      .subtitle { font: 400 17px Arial, sans-serif; fill: #4f5b67; }
+      .cloud { fill: #ffffff; stroke: #ff9900; stroke-width: 3; rx: 18; }
+      .vpc { fill: #fbfdff; stroke: #7aa5d2; stroke-width: 2.2; stroke-dasharray: 8 6; rx: 16; }
+      .band { fill: #ffffff; stroke: #d7dfe9; stroke-width: 1.5; rx: 14; }
+      .public { fill: #fff8ed; stroke: #ff9900; stroke-width: 2; rx: 12; filter: url(#shadow); }
+      .app { fill: #ffffff; stroke: #6ea8dc; stroke-width: 2; rx: 12; filter: url(#shadow); }
+      .data { fill: #fff7e5; stroke: #d6a13d; stroke-width: 2; rx: 12; filter: url(#shadow); }
+      .queue { fill: #eef8ee; stroke: #4f9d58; stroke-width: 2; rx: 12; filter: url(#shadow); }
+      .event { fill: #eef3fb; stroke: #7c99c7; stroke-width: 2; rx: 12; filter: url(#shadow); }
+      .job { fill: #f5f0ff; stroke: #8d74c4; stroke-width: 2; rx: 12; filter: url(#shadow); }
+      .risk { fill: #fff0f0; stroke: #cf6f6f; stroke-width: 2; rx: 12; filter: url(#shadow); }
+      .external { fill: #ffffff; stroke: #9da7b2; stroke-width: 2; rx: 12; filter: url(#shadow); }
+      .control { fill: #f4f6f8; stroke: #c8d0d8; stroke-width: 1.5; rx: 10; }
+      .aws { fill: #ff9900; }
+      .dark { fill: #232f3e; }
+      .heading { font: 700 18px Arial, sans-serif; fill: #232f3e; }
+      .label { font: 700 15px Arial, sans-serif; fill: #16191f; }
+      .text { font: 400 12.5px Arial, sans-serif; fill: #344054; }
+      .small { font: 400 11.5px Arial, sans-serif; fill: #667085; }
+      .step { fill: #ff9900; stroke: #ffffff; stroke-width: 2; }
+      .step-text { font: 700 12px Arial, sans-serif; fill: #ffffff; }
+      .line { fill: none; stroke: #334e68; stroke-width: 2.4; marker-end: url(#arrow); }
+      .soft { fill: none; stroke: #7a8793; stroke-width: 1.8; marker-end: url(#arrow); }
+      .dash { fill: none; stroke: #7a8793; stroke-width: 2; stroke-dasharray: 7 6; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect class="page" x="0" y="0" width="1900" height="1320"/>
+  <text class="title" x="70" y="62">Arquitetura AWS - Billing, pagamento, reembolso e jobs</text>
+  <text class="subtitle" x="70" y="92">Pagamento usa SQS FIFO como comando assincrono; eventos finais disparam jobs de conta/Firebase, fiscal, nota fiscal, onboarding, reembolso e upgrade.</text>
+
+  <rect class="external" x="60" y="185" width="190" height="118"/>
+  <circle class="dark" cx="95" cy="220" r="13"/>
+  <text class="label" x="155" y="220" text-anchor="middle">Cliente / Canal</text>
+  <text class="text" x="155" y="248" text-anchor="middle">mobile, parceiro</text>
+  <text class="text" x="155" y="270" text-anchor="middle">ou backoffice</text>
+
+  <rect class="cloud" x="285" y="125" width="1550" height="1040"/>
+  <text class="heading" x="315" y="162">AWS Cloud - Regiao</text>
+
+  <rect class="vpc" x="315" y="185" width="1490" height="585"/>
+  <text class="heading" x="345" y="222">VPC - workloads privados e servicos de aplicacao</text>
+
+  <rect class="band" x="345" y="255" width="280" height="470"/>
+  <text class="heading" x="370" y="292">Edge / Entrada</text>
+
+  <rect class="band" x="655" y="255" width="340" height="470"/>
+  <text class="heading" x="680" y="292">Billing</text>
+
+  <rect class="band" x="1025" y="255" width="345" height="470"/>
+  <text class="heading" x="1050" y="292">Mensageria</text>
+
+  <rect class="band" x="1400" y="255" width="365" height="470"/>
+  <text class="heading" x="1425" y="292">Orquestracao</text>
+
+  <rect class="public" x="375" y="330" width="220" height="90"/>
+  <rect class="aws" x="397" y="357" width="26" height="26" rx="4"/>
+  <text class="label" x="485" y="358" text-anchor="middle">AWS WAF</text>
+  <text class="text" x="485" y="383" text-anchor="middle">protege entrada</text>
+  <text class="text" x="485" y="403" text-anchor="middle">rate limit / rules</text>
+
+  <rect class="public" x="375" y="505" width="220" height="112"/>
+  <rect class="aws" x="397" y="540" width="26" height="26" rx="4"/>
+  <text class="label" x="485" y="535" text-anchor="middle">Application</text>
+  <text class="label" x="485" y="554" text-anchor="middle">Load Balancer</text>
+  <text class="text" x="485" y="582" text-anchor="middle">TLS, health check</text>
+  <text class="text" x="485" y="604" text-anchor="middle">roteia para billing-ws</text>
+
+  <rect class="app" x="705" y="330" width="240" height="112"/>
+  <rect class="dark" x="728" y="362" width="26" height="26" rx="4"/>
+  <text class="label" x="825" y="362" text-anchor="middle">billing-ws</text>
+  <text class="text" x="825" y="390" text-anchor="middle">Java/Kotlin + Spring</text>
+  <text class="text" x="825" y="412" text-anchor="middle">contrato, auth, DTO</text>
+
+  <rect class="app" x="705" y="525" width="240" height="112"/>
+  <rect class="dark" x="728" y="557" width="26" height="26" rx="4"/>
+  <text class="label" x="825" y="557" text-anchor="middle">billing-core</text>
+  <text class="text" x="825" y="585" text-anchor="middle">regra de cobranca</text>
+  <text class="text" x="825" y="607" text-anchor="middle">idempotencia + status</text>
+
+  <rect class="data" x="1045" y="330" width="295" height="116"/>
+  <path class="aws" d="M1072 362c0-10 18-18 40-18s40 8 40 18v44c0 10-18 18-40 18s-40-8-40-18z"/>
+  <text class="label" x="1215" y="358" text-anchor="middle">Amazon RDS / Aurora</text>
+  <text class="text" x="1215" y="386" text-anchor="middle">cobranca PENDING</text>
+  <text class="text" x="1215" y="408" text-anchor="middle">idempotency_key unica</text>
+  <text class="text" x="1215" y="430" text-anchor="middle">outbox transacional</text>
+
+  <rect class="app" x="1045" y="525" width="295" height="112"/>
+  <rect class="dark" x="1070" y="557" width="26" height="26" rx="4"/>
+  <text class="label" x="1215" y="557" text-anchor="middle">Publisher Outbox</text>
+  <text class="text" x="1215" y="585" text-anchor="middle">le eventos pendentes</text>
+  <text class="text" x="1215" y="607" text-anchor="middle">publica comando com retry</text>
+
+  <rect class="queue" x="1435" y="325" width="270" height="124"/>
+  <path class="aws" d="M1462 357h34v24h-34zM1502 357h34v24h-34zM1462 388h34v24h-34zM1502 388h34v24h-34z"/>
+  <text class="label" x="1592" y="355" text-anchor="middle">Amazon SQS FIFO</text>
+  <text class="text" x="1592" y="383" text-anchor="middle">PaymentRequested.fifo</text>
+  <text class="text" x="1592" y="405" text-anchor="middle">MessageGroupId = accountId</text>
+  <text class="text" x="1592" y="427" text-anchor="middle">~1000 pagamentos/min</text>
+
+  <rect class="risk" x="1650" y="478" width="95" height="76"/>
+  <text class="label" x="1698" y="506" text-anchor="middle">DLQ</text>
+  <text class="small" x="1698" y="530" text-anchor="middle">payment</text>
+
+  <rect class="app" x="1435" y="600" width="270" height="116"/>
+  <rect class="dark" x="1460" y="634" width="26" height="26" rx="4"/>
+  <text class="label" x="1592" y="632" text-anchor="middle">payment-orchestrador</text>
+  <text class="text" x="1592" y="660" text-anchor="middle">consumer em EKS/ECS</text>
+  <text class="text" x="1592" y="682" text-anchor="middle">retry, timeout, backoff</text>
+  <text class="text" x="1592" y="704" text-anchor="middle">idempotente por paymentId</text>
+
+  <rect class="external" x="1685" y="805" width="160" height="95"/>
+  <text class="label" x="1765" y="838" text-anchor="middle">Gateway</text>
+  <text class="text" x="1765" y="864" text-anchor="middle">core bancario</text>
+  <text class="text" x="1765" y="886" text-anchor="middle">autoriza/liquida</text>
+
+  <rect class="band" x="315" y="795" width="1360" height="300"/>
+  <text class="heading" x="345" y="832">Eventos, jobs e integracoes pos-pagamento</text>
+
+  <rect class="event" x="355" y="885" width="240" height="104"/>
+  <rect class="aws" x="380" y="918" width="26" height="26" rx="13"/>
+  <text class="label" x="485" y="914" text-anchor="middle">EventBridge / SNS</text>
+  <text class="text" x="485" y="942" text-anchor="middle">PaymentCompleted</text>
+  <text class="text" x="485" y="964" text-anchor="middle">PaymentFailed</text>
+
+  <rect class="job" x="645" y="850" width="170" height="88"/>
+  <text class="label" x="730" y="881" text-anchor="middle">Conta Lambda</text>
+  <text class="text" x="730" y="908" text-anchor="middle">atualiza conta</text>
+
+  <rect class="external" x="645" y="990" width="170" height="70"/>
+  <text class="label" x="730" y="1018" text-anchor="middle">Firebase</text>
+  <text class="text" x="730" y="1042" text-anchor="middle">push/status app</text>
+
+  <rect class="job" x="865" y="850" width="170" height="88"/>
+  <text class="label" x="950" y="881" text-anchor="middle">Fiscal Lambda</text>
+  <text class="text" x="950" y="908" text-anchor="middle">dados fiscais</text>
+
+  <rect class="job" x="1085" y="850" width="180" height="88"/>
+  <text class="label" x="1175" y="881" text-anchor="middle">Nota Fiscal Lambda</text>
+  <text class="text" x="1175" y="908" text-anchor="middle">gera/enfileira NF</text>
+
+  <rect class="data" x="1085" y="990" width="180" height="70"/>
+  <text class="label" x="1175" y="1018" text-anchor="middle">Amazon S3</text>
+  <text class="text" x="1175" y="1042" text-anchor="middle">bucket de NFs</text>
+
+  <rect class="job" x="1315" y="850" width="170" height="88"/>
+  <text class="label" x="1400" y="881" text-anchor="middle">Onboarding Lambda</text>
+  <text class="text" x="1400" y="908" text-anchor="middle">libera acesso</text>
+
+  <rect class="queue" x="355" y="655" width="230" height="92"/>
+  <text class="label" x="470" y="685" text-anchor="middle">RefundRequested</text>
+  <text class="text" x="470" y="712" text-anchor="middle">SQS fila de reembolso</text>
+  <text class="text" x="470" y="734" text-anchor="middle">origem: billing-ws</text>
+
+  <rect class="job" x="625" y="655" width="190" height="92"/>
+  <text class="label" x="720" y="685" text-anchor="middle">Refund Job</text>
+  <text class="text" x="720" y="712" text-anchor="middle">Lambda ou worker</text>
+  <text class="text" x="720" y="734" text-anchor="middle">reembolso idempotente</text>
+
+  <rect class="event" x="865" y="655" width="215" height="92"/>
+  <text class="label" x="972" y="685" text-anchor="middle">EventBridge</text>
+  <text class="text" x="972" y="712" text-anchor="middle">Scheduler</text>
+  <text class="text" x="972" y="734" text-anchor="middle">upgrade de plano</text>
+
+  <rect class="job" x="1125" y="655" width="210" height="92"/>
+  <text class="label" x="1230" y="685" text-anchor="middle">Upgrade Plan Job</text>
+  <text class="text" x="1230" y="712" text-anchor="middle">Lambda agendada</text>
+  <text class="text" x="1230" y="734" text-anchor="middle">aplica mudanca no core</text>
+
+  <rect class="risk" x="1485" y="995" width="145" height="65"/>
+  <text class="label" x="1558" y="1022" text-anchor="middle">DLQs</text>
+  <text class="small" x="1558" y="1045" text-anchor="middle">jobs/eventos</text>
+
+  <path class="line" d="M250 244 L370 375"/>
+  <path class="line" d="M485 420 L485 500"/>
+  <path class="line" d="M595 561 C650 561 650 386 700 386"/>
+  <path class="line" d="M825 442 L825 520"/>
+  <path class="line" d="M945 581 C1005 582 1010 389 1040 389"/>
+  <path class="line" d="M1192 446 L1192 520"/>
+  <path class="line" d="M1340 581 C1410 580 1410 388 1430 388"/>
+  <path class="line" d="M1592 449 L1592 595"/>
+  <path class="line" d="M1705 658 C1770 690 1765 745 1765 800"/>
+  <path class="line" d="M1685 852 C1490 865 785 880 600 922"/>
+
+  <path class="dash" d="M1705 516 L1645 516"/>
+  <path class="dash" d="M1698 554 C1720 630 1690 670 1705 680"/>
+
+  <path class="line" d="M595 937 L640 894"/>
+  <path class="line" d="M730 938 L730 985"/>
+  <path class="line" d="M595 937 L860 894"/>
+  <path class="line" d="M1035 894 L1080 894"/>
+  <path class="line" d="M1175 938 L1175 985"/>
+  <path class="line" d="M595 937 L1310 894"/>
+  <path class="dash" d="M1485 1028 L1490 1028"/>
+
+  <path class="line" d="M705 420 C610 500 520 595 470 650"/>
+  <path class="line" d="M585 701 L620 701"/>
+  <path class="line" d="M815 701 C1090 790 1470 760 1685 852"/>
+
+  <path class="line" d="M1080 701 L1120 701"/>
+  <path class="line" d="M1230 655 C1145 600 1035 612 945 581"/>
+
+  <circle class="step" cx="320" cy="322" r="15"/><text class="step-text" x="320" y="326" text-anchor="middle">1</text>
+  <circle class="step" cx="485" cy="463" r="15"/><text class="step-text" x="485" y="467" text-anchor="middle">2</text>
+  <circle class="step" cx="640" cy="492" r="15"/><text class="step-text" x="640" y="496" text-anchor="middle">3</text>
+  <circle class="step" cx="825" cy="482" r="15"/><text class="step-text" x="825" y="486" text-anchor="middle">4</text>
+  <circle class="step" cx="1005" cy="494" r="15"/><text class="step-text" x="1005" y="498" text-anchor="middle">5</text>
+  <circle class="step" cx="1192" cy="485" r="15"/><text class="step-text" x="1192" y="489" text-anchor="middle">6</text>
+  <circle class="step" cx="1390" cy="494" r="15"/><text class="step-text" x="1390" y="498" text-anchor="middle">7</text>
+  <circle class="step" cx="1592" cy="560" r="15"/><text class="step-text" x="1592" y="564" text-anchor="middle">8</text>
+  <circle class="step" cx="1758" cy="780" r="15"/><text class="step-text" x="1758" y="784" text-anchor="middle">9</text>
+
+  <rect class="control" x="60" y="1200" width="1780" height="82"/>
+  <text class="heading" x="90" y="1232">Ferramentas senior/transversais</text>
+  <text class="small" x="90" y="1262">IAM roles por servico | Secrets Manager + KMS | CloudWatch Logs/Metrics/Alarms | X-Ray/OpenTelemetry | CloudTrail | Terraform | CI/CD com rollback | HPA/Auto Scaling | WAF/rate limit | DLQ + redrive + runbooks</text>
+</svg>

@@ -1,0 +1,116 @@
+flowchart LR
+  %% Arquitetura AWS - billing, pagamento, reembolso e jobs.
+  %% Decisao: PaymentRequested usa Amazon SQS FIFO, pois e comando de execucao de pagamento.
+
+  cliente["Cliente / Canal<br/>mobile, parceiro, backoffice"]
+
+  subgraph aws["AWS Cloud - Regiao"]
+    subgraph edge["Edge / Entrada"]
+      waf["AWS WAF<br/>rate limit / rules"]
+      alb["Application Load Balancer<br/>TLS, health checks<br/>roteia para billing-ws"]
+    end
+
+    subgraph vpc["VPC / Private Subnets"]
+      subgraph cluster["EKS/ECS Cluster"]
+        bws["billing-ws<br/>Java/Kotlin + Spring<br/>contrato, auth, DTO"]
+        bcore["billing-core<br/>regra de cobranca<br/>idempotencia + status"]
+        publisher["Publisher Outbox<br/>le eventos pendentes<br/>publica comando com retry"]
+        orch["payment-orchestrador<br/>consumer em EKS/ECS<br/>retry, timeout, backoff<br/>idempotente por paymentId"]
+      end
+
+      db[("Amazon RDS / Aurora<br/>cobranca PENDING<br/>idempotency_key unica<br/>outbox transacional")]
+    end
+
+    paymentQueue[["Amazon SQS FIFO<br/>PaymentRequested.fifo<br/>MessageGroupId = accountId<br/>~1000 pagamentos/min com folga"]]
+    paymentDlq[["DLQ Payment<br/>falhas apos max retries<br/>redrive controlado"]]
+
+    eventBus[["Amazon EventBridge / SNS<br/>PaymentCompleted<br/>PaymentFailed"]]
+
+    contaJob["Conta Lambda<br/>atualiza conta/status"]
+    firebase["Firebase<br/>push/status app"]
+
+    fiscalJob["Fiscal Lambda<br/>prepara dados fiscais"]
+    nfJob["Nota Fiscal Lambda<br/>gera/enfileira NF"]
+    nfBucket[("Amazon S3<br/>bucket de notas fiscais")]
+
+    onboardingJob["Onboarding Lambda<br/>libera acesso/plano"]
+
+    refundQueue[["SQS RefundRequested<br/>origem: billing-ws"]]
+    refundJob["Refund Lambda<br/>ou worker ECS<br/>reembolso idempotente"]
+    refundDlq[["DLQ Refund"]]
+
+    scheduler["EventBridge Scheduler<br/>upgrade de plano"]
+    upgradeJob["Upgrade Plan Lambda<br/>agendada<br/>aplica mudanca no core"]
+
+    observability["CloudWatch + X-Ray/Otel<br/>logs, metricas, traces, alarmes"]
+    security["IAM + Secrets Manager + KMS<br/>least privilege e segredos"]
+    devops["Terraform + CI/CD<br/>rollback, runbooks, autoscaling"]
+    audit["CloudTrail<br/>auditoria AWS"]
+  end
+
+  gateway["Gateway / Core bancario<br/>autoriza/liquida"]
+
+  cliente -->|"1. request"| waf
+  waf --> alb
+  alb -->|"2. HTTP interno"| bws
+  bws -->|"3. valida e chama core"| bcore
+  bcore -->|"4. persiste cobranca + outbox"| db
+  db -->|"5. outbox pendente"| publisher
+  publisher -->|"6. publica PaymentRequested"| paymentQueue
+  paymentQueue -->|"7. consumer/poll"| orch
+  orch -->|"8. chama provedor"| gateway
+  gateway -->|"9. resultado"| orch
+  orch -->|"10. atualiza status"| db
+  orch -->|"11. publica evento final"| eventBus
+
+  eventBus --> contaJob
+  contaJob --> firebase
+  eventBus --> fiscalJob
+  fiscalJob --> nfJob
+  nfJob --> nfBucket
+  eventBus --> onboardingJob
+
+  bws -->|"solicita reembolso via fila"| refundQueue
+  refundQueue --> refundJob
+  refundJob --> gateway
+  refundJob -- "falha permanente" --> refundDlq
+
+  scheduler -->|"cron/rule"| upgradeJob
+  upgradeJob -->|"altera plano"| bcore
+
+  orch -- "falha permanente" --> paymentDlq
+  paymentDlq -- "redrive controlado" --> paymentQueue
+
+  observability -. monitora .- bws
+  observability -. monitora .- bcore
+  observability -. monitora .- orch
+  observability -. monitora .- refundJob
+  observability -. monitora .- upgradeJob
+  security -. protege .- alb
+  security -. protege .- db
+  security -. protege .- paymentQueue
+  security -. protege .- nfBucket
+  devops -. provisiona/entrega .- cluster
+  devops -. provisiona/entrega .- paymentQueue
+  devops -. provisiona/entrega .- eventBus
+  audit -. audita .- security
+
+  classDef external fill:#ffffff,stroke:#9da7b2,stroke-width:2px,color:#16191f;
+  classDef public fill:#fff8ed,stroke:#ff9900,stroke-width:2px,color:#16191f;
+  classDef app fill:#ffffff,stroke:#6ea8dc,stroke-width:2px,color:#16191f;
+  classDef data fill:#fff7e5,stroke:#d6a13d,stroke-width:2px,color:#16191f;
+  classDef queue fill:#eef8ee,stroke:#4f9d58,stroke-width:2px,color:#16191f;
+  classDef event fill:#eef3fb,stroke:#7c99c7,stroke-width:2px,color:#16191f;
+  classDef job fill:#f5f0ff,stroke:#8d74c4,stroke-width:2px,color:#16191f;
+  classDef risk fill:#fff0f0,stroke:#cf6f6f,stroke-width:2px,color:#16191f;
+  classDef control fill:#f4f6f8,stroke:#c8d0d8,stroke-width:1px,color:#344054;
+
+  class cliente,gateway,firebase external;
+  class waf,alb public;
+  class bws,bcore,publisher,orch app;
+  class db,nfBucket data;
+  class paymentQueue,refundQueue queue;
+  class eventBus,scheduler event;
+  class contaJob,fiscalJob,nfJob,onboardingJob,refundJob,upgradeJob job;
+  class paymentDlq,refundDlq risk;
+  class observability,security,devops,audit control;
