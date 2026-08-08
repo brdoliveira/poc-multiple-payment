@@ -101,3 +101,12 @@ Endpoints internos exigem `X-Internal-Api-Key` configuravel por ambiente. Em
 producao, esse mecanismo deve evoluir para mTLS, JWT assinado ou autorizacao
 centralizada por API Gateway. Webhooks externos nao usam a API key interna: eles
 devem ser protegidos por assinatura HMAC especifica do provedor.
+
+## Implantacao AWS
+
+A estrutura AWS da PoC esta em `infra/aws/terraform`. O ECS Fargate executa os
+servicos `payment-orchestrator-java`, `pix-boleto-kotlin` e
+`card-payment-csharp`. O estado transacional usa RDS PostgreSQL, os dados
+operacionais usam Amazon DocumentDB e os eventos de processamento usam Amazon
+MQ RabbitMQ. O ALB publica as rotas `/payments`, `/reconciliation`,
+`/bank-rail`, `/cards` e `/webhooks`.

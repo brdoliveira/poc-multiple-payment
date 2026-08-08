@@ -57,6 +57,15 @@ Servicos locais:
 - MongoDB em `localhost:27017`;
 - RabbitMQ em `localhost:5672` e console em `localhost:15672`.
 
+## Infraestrutura AWS
+
+O Terraform da PoC fica em `infra/aws/terraform`. Ele cria ECS Fargate/ECR para
+os tres microsservicos, RDS PostgreSQL, Amazon DocumentDB, Amazon MQ RabbitMQ,
+ALB, WAF, Secrets Manager e observabilidade basica.
+
+Consulte [infra/aws/terraform/README.md](infra/aws/terraform/README.md) para
+validar e aplicar a infraestrutura.
+
 ## Banco SQL e NoSQL
 
 O PostgreSQL guarda o estado transacional confiavel:
