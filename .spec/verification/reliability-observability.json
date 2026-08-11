@@ -1,0 +1,57 @@
+{
+  "feature": "reliability-observability",
+  "timestamp": "2026-08-11T14:02:56.154Z",
+  "gitRev": "e0556c4",
+  "command": "node .spec/run-tests.mjs",
+  "reporter": "tap",
+  "exitCode": 0,
+  "testsParsed": 52,
+  "results": {
+    "AC-017": {
+      "status": "pass",
+      "testName": "reliability-observability-static Java claims idempotency before creating events under concurrency @spec:AC-017",
+      "method": "tap"
+    },
+    "AC-018": {
+      "status": "pass",
+      "testName": "reliability-observability-static Java rejects a different fingerprint for the same key @spec:AC-018",
+      "method": "tap"
+    },
+    "AC-019": {
+      "status": "pass",
+      "testName": "pix-boleto-kotlin com.acme.payments.pixboleto.application.ChargeServiceTest calls provider once for concurrent duplicates @spec:AC-019",
+      "method": "tap"
+    },
+    "AC-020": {
+      "status": "pass",
+      "testName": "reliability-observability-static C\\\\# reserves the key before invoking the card provider @spec:AC-020",
+      "method": "tap"
+    },
+    "AC-021": {
+      "status": "pass",
+      "testName": "pix-boleto-kotlin com.acme.payments.pixboleto.application.ChargeServiceTest rejects same key with a different request @spec:AC-021",
+      "method": "tap"
+    },
+    "AC-022": {
+      "status": "pass",
+      "testName": "reliability-observability-static HTTP correlation IDs are bounded and request outcomes are logged @spec:AC-022",
+      "method": "tap"
+    },
+    "AC-023": {
+      "status": "pass",
+      "testName": "reliability-observability-static correlation context crosses the outbox and RabbitMQ consumers @spec:AC-023",
+      "method": "tap"
+    },
+    "AC-024": {
+      "status": "pass",
+      "testName": "reliability-observability-static payment telemetry is structured and excludes raw sensitive values @spec:AC-024",
+      "method": "tap"
+    },
+    "AC-025": {
+      "status": "pass",
+      "testName": "reliability-observability-static Terraform defines encrypted logs, latency and CPU alarms, and a dashboard @spec:AC-025",
+      "method": "tap"
+    }
+  },
+  "principles": {}
+}
