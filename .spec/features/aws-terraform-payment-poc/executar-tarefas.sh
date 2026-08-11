@@ -17,7 +17,7 @@ set -o pipefail
 RUN_ID='poc-payment-aws-terraform-payment-poc-mslr4km5'
 FEATURE='aws-terraform-payment-poc'
 BASE_BRANCH='spec/aws-terraform-payment-poc'
-ENGINE='C:\Users\brufe\.agents\skills\onp-spec-driven\scripts\onp-spec.mjs'
+ENGINE="${ONP_SPEC_ENGINE:-onp-spec}"
 CODEX_FLAGS=(--sandbox 'workspace-write')
 STREAM_FLAGS=(--json)
 FALHAS=""
