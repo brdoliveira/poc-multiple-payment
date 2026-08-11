@@ -33,7 +33,7 @@ resource "aws_db_instance" "main" {
 
   performance_insights_enabled    = true
   performance_insights_kms_key_id = aws_kms_key.main.arn
-  monitoring_interval              = 0
+  monitoring_interval             = 0
   auto_minor_version_upgrade      = true
 
   tags = { Name = "${local.name}-postgres" }
