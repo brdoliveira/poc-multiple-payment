@@ -8,6 +8,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.context.annotation.Bean;
+import io.micrometer.core.instrument.MeterRegistry;
 
 @SpringBootApplication
 @EnableScheduling
@@ -20,8 +21,9 @@ public class Application {
     PaymentOrchestratorService paymentOrchestratorService(
             PaymentRepository paymentRepository,
             IdempotencyStore idempotencyStore,
-            OutboxEventPublisher outboxEventPublisher
+            OutboxEventPublisher outboxEventPublisher,
+            MeterRegistry meterRegistry
     ) {
-        return new PaymentOrchestratorService(paymentRepository, idempotencyStore, outboxEventPublisher);
+        return new PaymentOrchestratorService(paymentRepository, idempotencyStore, outboxEventPublisher, meterRegistry);
     }
 }
