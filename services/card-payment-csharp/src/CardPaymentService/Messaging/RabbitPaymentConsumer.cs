@@ -87,15 +87,21 @@ public sealed class RabbitPaymentConsumer : BackgroundService
         }
 
         string payload = Encoding.UTF8.GetString(delivery.Body.Span);
+        string correlationId = string.Empty;
         try
         {
             PaymentProcessingEvent? paymentEvent = JsonSerializer.Deserialize<PaymentProcessingEvent>(payload, JsonOptions);
             if (paymentEvent is not null)
             {
-                var command = commandMapper.ToCommand(paymentEvent);
-                if (command is not null)
+                correlationId = IsSafeCorrelationId(paymentEvent.CorrelationId) ? paymentEvent.CorrelationId : Guid.NewGuid().ToString();
+                using (logger.BeginScope(new Dictionary<string, object> { ["CorrelationId"] = correlationId }))
                 {
-                    await cardPaymentService.AuthorizeAsync(command, CancellationToken.None);
+                    var command = commandMapper.ToCommand(paymentEvent);
+                    if (command is not null)
+                    {
+                        await cardPaymentService.AuthorizeAsync(command, CancellationToken.None);
+                    }
+                    logger.LogInformation("payment_event outcome=processed service=card-payment event_type={EventType} payment_id={PaymentId} correlation_id={CorrelationId}", paymentEvent.EventType, paymentEvent.PaymentId, correlationId);
                 }
             }
 
@@ -107,14 +113,17 @@ public sealed class RabbitPaymentConsumer : BackgroundService
             {
                 PublishToDeadLetter(payload);
                 channel.BasicAck(delivery.DeliveryTag, false);
-                logger.LogError(exception, "Card payment event moved to DLQ");
+                logger.LogError(exception, "payment_event outcome=dead_letter service=card-payment correlation_id={CorrelationId}", correlationId);
                 return;
             }
 
             channel.BasicReject(delivery.DeliveryTag, false);
-            logger.LogWarning(exception, "Card payment event rejected for retry");
+            logger.LogWarning(exception, "payment_event outcome=retry service=card-payment correlation_id={CorrelationId}", correlationId);
         }
     }
+
+    private static bool IsSafeCorrelationId(string value) =>
+        value is { Length: > 0 and <= 128 } && value.All(c => char.IsLetterOrDigit(c) || "._:-".Contains(c));
 
     private bool ShouldDeadLetter(BasicDeliverEventArgs delivery)
     {
