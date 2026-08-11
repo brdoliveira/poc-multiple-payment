@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Fluxo de criação de pagamento da PoC.">
+    <title>Pagamento | Payment Operations</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#payment-flow" aria-label="Payment Operations">
+          <span class="brand-mark" aria-hidden="true">P</span>
+          <span>
+            <strong>Payment Operations</strong>
+            <small>PoC workspace</small>
+          </span>
+        </a>
+        <div class="topbar-meta">
+          <span class="environment"><span class="status-dot" aria-hidden="true"></span> ambiente de teste</span>
+          <button class="icon-button" type="button" aria-label="Abrir notificações" title="Notificações">
+            <span aria-hidden="true">◌</span>
+            <span class="notification-dot" aria-hidden="true"></span>
+          </button>
+          <div class="avatar" aria-label="Usuário Bruno">BR</div>
+        </div>
+      </header>
+
+      <main class="main-content" id="payment-flow">
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow">Nova operação <span class="slash">/</span> Pagamento</p>
+            <h1>Criar pagamento</h1>
+            <p class="heading-copy">Preencha os dados, escolha o meio de pagamento e revise antes de confirmar.</p>
+          </div>
+          <button class="quiet-button" type="button" data-action="reset">
+            <span aria-hidden="true">↺</span> Limpar formulário
+          </button>
+        </div>
+
+        <nav class="stepper" aria-label="Etapas do pagamento">
+          <button class="step is-active" type="button" data-step="1">
+            <span class="step-number">01</span>
+            <span><strong>Dados</strong><small>pedido e cliente</small></span>
+          </button>
+          <span class="step-line" aria-hidden="true"></span>
+          <button class="step" type="button" data-step="2">
+            <span class="step-number">02</span>
+            <span><strong>Pagamento</strong><small>meio e condições</small></span>
+          </button>
+          <span class="step-line" aria-hidden="true"></span>
+          <button class="step" type="button" data-step="3">
+            <span class="step-number">03</span>
+            <span><strong>Revisão</strong><small>confirmação</small></span>
+          </button>
+        </nav>
+
+        <div class="workspace-grid">
+          <section class="flow-panel" aria-labelledby="flow-title">
+            <div class="panel-heading">
+              <div>
+                <span class="panel-kicker" id="flow-kicker">ETAPA 01</span>
+                <h2 id="flow-title">Dados do pagamento</h2>
+              </div>
+              <span class="draft-label"><span class="draft-dot" aria-hidden="true"></span> rascunho salvo localmente</span>
+            </div>
+
+            <div id="form-alert" class="form-alert" role="alert" aria-live="polite" hidden></div>
+
+            <form id="payment-form" novalidate>
+              <section class="form-step is-visible" data-panel="1" aria-labelledby="details-title">
+                <div class="section-heading">
+                  <div>
+                    <h3 id="details-title">Sobre o pedido</h3>
+                    <p>Informe o valor e identifique a operação para sua conciliação.</p>
+                  </div>
+                  <span class="required-note">* campos obrigatórios</span>
+                </div>
+                <div class="field-grid two-columns">
+                  <label class="field field-wide">
+                    <span>Descrição do pagamento <b>*</b></span>
+                    <input id="description" name="description" type="text" placeholder="Ex.: Pedido #4821" autocomplete="off">
+                    <small>Use uma referência que ajude a encontrar a operação depois.</small>
+                  </label>
+                  <label class="field">
+                    <span>Valor <b>*</b></span>
+                    <div class="input-prefix"><span>R$</span><input id="amount" name="amount" inputmode="decimal" type="text" placeholder="0,00" autocomplete="off"></div>
+                  </label>
+                  <label class="field">
+                    <span>Cliente</span>
+                    <input id="customer" name="customer" type="text" placeholder="Nome ou identificador" autocomplete="off">
+                  </label>
+                </div>
+              </section>
+
+              <section class="form-step" data-panel="2" aria-labelledby="method-title" hidden>
+                <div class="section-heading">
+                  <div>
+                    <h3 id="method-title">Escolha o meio de pagamento</h3>
+                    <p>O método selecionado define as instruções para o cliente.</p>
+                  </div>
+                </div>
+                <div class="method-list" role="radiogroup" aria-label="Meios de pagamento">
+                  <button class="method-card is-selected" type="button" role="radio" aria-checked="true" data-method="pix">
+                    <span class="method-icon pix-icon" aria-hidden="true">✦</span>
+                    <span class="method-copy"><strong>Pix</strong><small>aprovação imediata</small></span>
+                    <span class="method-check" aria-hidden="true">✓</span>
+                  </button>
+                  <button class="method-card" type="button" role="radio" aria-checked="false" data-method="card">
+                    <span class="method-icon card-icon" aria-hidden="true">▭</span>
+                    <span class="method-copy"><strong>Cartão</strong><small>crédito ou débito</small></span>
+                    <span class="method-check" aria-hidden="true">✓</span>
+                  </button>
+                  <button class="method-card" type="button" role="radio" aria-checked="false" data-method="boleto">
+                    <span class="method-icon boleto-icon" aria-hidden="true">▤</span>
+                    <span class="method-copy"><strong>Boleto</strong><small>compensação em até 3 dias</small></span>
+                    <span class="method-check" aria-hidden="true">✓</span>
+                  </button>
+                </div>
+                <div id="method-detail" class="method-detail" aria-live="polite">
+                  <span class="detail-icon" aria-hidden="true">⌁</span>
+                  <span><strong>Pix selecionado</strong><small>Um QR Code será criado ao confirmar o pagamento.</small></span>
+                </div>
+              </section>
+
+              <section class="form-step" data-panel="3" aria-labelledby="review-title" hidden>
+                <div class="section-heading">
+                  <div>
+                    <h3 id="review-title">Confira antes de confirmar</h3>
+                    <p>Revise os dados da operação. Você ainda pode voltar e editar.</p>
+                  </div>
+                </div>
+                <div class="review-list">
+                  <div><span>Descrição</span><strong data-review="description">—</strong></div>
+                  <div><span>Cliente</span><strong data-review="customer">—</strong></div>
+                  <div><span>Meio de pagamento</span><strong data-review="method">Pix</strong></div>
+                  <div class="review-total"><span>Valor total</span><strong data-review="amount">R$ 0,00</strong></div>
+                </div>
+                <div class="review-note"><span aria-hidden="true">i</span> Esta é uma simulação local. Nenhuma cobrança real será criada.</div>
+              </section>
+
+              <section class="form-step success-state" data-panel="success" aria-labelledby="success-title" hidden>
+                <div class="success-icon" aria-hidden="true">✓</div>
+                <span class="panel-kicker">PAGAMENTO CRIADO</span>
+                <h2 id="success-title">Operação iniciada</h2>
+                <p>O pagamento foi registrado no ambiente de teste e está pronto para processamento.</p>
+                <div class="operation-id"><span>ID da operação</span><strong id="operation-id">PAY-000000</strong></div>
+                <button class="primary-button" type="button" data-action="reset">Criar novo pagamento <span aria-hidden="true">↗</span></button>
+              </section>
+
+              <div class="form-actions" data-actions>
+                <button class="back-button" type="button" data-action="back" hidden><span aria-hidden="true">←</span> Voltar</button>
+                <button class="primary-button" type="submit" data-action="next">Continuar <span aria-hidden="true">→</span></button>
+              </div>
+            </form>
+          </section>
+
+          <aside class="summary-panel" aria-labelledby="summary-title">
+            <div class="summary-topline"><span class="live-pill"><span aria-hidden="true"></span> ao vivo</span><span class="summary-code"># DRAFT-4821</span></div>
+            <h2 id="summary-title">Resumo do pedido</h2>
+            <p class="summary-caption">A operação será criada como um novo pagamento.</p>
+            <div class="summary-illustration" aria-hidden="true">
+              <div class="receipt-card"><span class="receipt-logo">P</span><span class="receipt-line short"></span><span class="receipt-line"></span><span class="receipt-line"></span><span class="receipt-total"></span></div>
+              <span class="spark spark-one">✦</span><span class="spark spark-two">·</span><span class="spark spark-three">✦</span>
+            </div>
+            <div class="summary-details">
+              <div><span>Descrição</span><strong data-summary="description">Aguardando dados</strong></div>
+              <div><span>Cliente</span><strong data-summary="customer">Não informado</strong></div>
+              <div><span>Meio</span><strong class="summary-method"><span class="method-mini-icon">✦</span><span data-summary="method">Pix</span></strong></div>
+            </div>
+            <div class="summary-total"><span>Total a pagar</span><strong data-summary="amount">R$ 0,00</strong></div>
+            <div class="secure-note"><span aria-hidden="true">⌁</span><span><strong>Ambiente protegido</strong><small>Dados de teste não são enviados para provedores.</small></span></div>
+          </aside>
+        </div>
+      </main>
+    </div>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
