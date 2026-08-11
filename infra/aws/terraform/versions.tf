@@ -12,14 +12,7 @@ terraform {
     }
   }
 
-  # Em producao, habilite um backend remoto, por exemplo:
-  # backend "s3" {
-  #   bucket       = "empresa-terraform-state"
-  #   key          = "payments/prod/terraform.tfstate"
-  #   region       = "sa-east-1"
-  #   encrypt      = true
-  #   use_lockfile = true
-  # }
+  backend "s3" {}
 }
 
 provider "aws" {
