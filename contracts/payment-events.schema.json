@@ -3,7 +3,7 @@
   "$id": "https://example.local/contracts/payment-events.schema.json",
   "title": "Payment Event",
   "type": "object",
-  "required": ["eventId", "eventType", "paymentId", "idempotencyKey", "occurredAt", "version"],
+  "required": ["eventId", "eventType", "paymentId", "idempotencyKey", "occurredAt", "correlationId", "version"],
   "properties": {
     "eventId": { "type": "string", "format": "uuid" },
     "eventType": {
@@ -45,6 +45,11 @@
     "occurredAt": {
       "type": "string",
       "format": "date-time"
+    },
+    "correlationId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
     },
     "version": {
       "type": "integer",
