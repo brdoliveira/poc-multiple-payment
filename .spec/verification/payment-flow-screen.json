@@ -1,0 +1,62 @@
+{
+  "feature": "payment-flow-screen",
+  "timestamp": "2026-08-11T14:02:24.153Z",
+  "gitRev": "e0556c4",
+  "command": "node .spec/run-tests.mjs",
+  "reporter": "tap",
+  "exitCode": 0,
+  "testsParsed": 52,
+  "results": {
+    "AC-007": {
+      "status": "pass",
+      "testName": "payment-flow-screen-static screen exposes title, steps, form and summary @spec:AC-007",
+      "method": "tap"
+    },
+    "AC-008": {
+      "status": "pass",
+      "testName": "payment-flow-screen-static screen declares all payment methods and live method detail @spec:AC-008",
+      "method": "tap"
+    },
+    "AC-009": {
+      "status": "pass",
+      "testName": "payment-flow-screen-static screen connects empty fields to local validation feedback @spec:AC-009",
+      "method": "tap"
+    },
+    "AC-010": {
+      "status": "pass",
+      "testName": "payment-flow-screen-static screen exposes back navigation and review values @spec:AC-010",
+      "method": "tap"
+    },
+    "AC-011": {
+      "status": "pass",
+      "testName": "payment-flow-screen-static screen contains local success and reset states @spec:AC-011",
+      "method": "tap"
+    },
+    "AC-012": {
+      "status": "pass",
+      "testName": "payment-flow-integration payment-flow.integration.spec.mjs screen reflows without horizontal overflow on narrow viewport @spec:AC-012",
+      "method": "tap"
+    },
+    "AC-013": {
+      "status": "pass",
+      "testName": "payment-flow-screen-static screen documentation covers setup, responsibilities and limits @spec:AC-013",
+      "method": "tap"
+    },
+    "AC-014": {
+      "status": "pass",
+      "testName": "payment-flow-unit formats Brazilian currency consistently @spec:AC-014",
+      "method": "tap"
+    },
+    "AC-015": {
+      "status": "pass",
+      "testName": "payment-flow-screen-static CI and spec runner execute unit, integration and static proofs @spec:AC-015",
+      "method": "tap"
+    },
+    "AC-016": {
+      "status": "pass",
+      "testName": "payment-flow-integration payment-flow.integration.spec.mjs operator completes payment flow and starts a new payment @spec:AC-016",
+      "method": "tap"
+    }
+  },
+  "principles": {}
+}
