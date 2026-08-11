@@ -20,6 +20,8 @@ public sealed record PaymentProcessingEvent
 
     public string? Provider { get; init; }
 
+    public string CorrelationId { get; init; } = string.Empty;
+
     public IReadOnlyDictionary<string, JsonElement> Metadata { get; init; } =
         new Dictionary<string, JsonElement>();
 }
