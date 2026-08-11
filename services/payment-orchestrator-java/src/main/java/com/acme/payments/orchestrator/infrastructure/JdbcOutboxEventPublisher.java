@@ -6,10 +6,12 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
+import org.slf4j.MDC;
 
 import java.time.Instant;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Optional;
 import java.util.UUID;
 
 @Component
@@ -55,6 +57,8 @@ public class JdbcOutboxEventPublisher implements OutboxEventPublisher {
             payload.put("amount", payment.amount());
             payload.put("currency", payment.currency());
             payload.put("occurredAt", Instant.now().toString());
+            payload.put("correlationId", Optional.ofNullable(MDC.get("correlationId"))
+                    .orElseGet(() -> UUID.randomUUID().toString()));
             payload.put("version", 1);
             Map<String, Object> metadata = new LinkedHashMap<>(payment.metadata());
             metadata.put("status", payment.status().name());
