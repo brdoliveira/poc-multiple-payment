@@ -47,8 +47,15 @@ app.MapPost("/cards/authorizations", async (
     ApplicationCardPaymentService service,
     CancellationToken cancellationToken) =>
 {
-    CardPaymentResult result = await service.AuthorizeAsync(command, cancellationToken);
-    return Results.Accepted($"/cards/authorizations/{result.PaymentId}", result);
+    try
+    {
+        CardPaymentResult result = await service.AuthorizeAsync(command, cancellationToken);
+        return Results.Accepted($"/cards/authorizations/{result.PaymentId}", result);
+    }
+    catch (IdempotencyConflictException exception)
+    {
+        return Results.Conflict(new { error = "idempotency_conflict", detail = exception.Message });
+    }
 });
 
 app.MapPost("/webhooks/{provider}", async (
