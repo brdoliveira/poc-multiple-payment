@@ -19,11 +19,15 @@ Este diretorio provisiona a infraestrutura AWS da PoC de pagamentos em
 ## Uso local
 
 ```bash
-terraform init
+terraform init -backend=false
 terraform validate
 terraform plan -var-file=terraform.tfvars
 terraform apply -var-file=terraform.tfvars
 ```
+
+O CI/CD usa backend S3 parametrizado. Consulte
+`docs/terraform-ci.md` para configurar OIDC, o bucket de state e o environment
+de apply antes de executar `plan` ou `apply` na AWS.
 
 Copie `terraform.tfvars.example` para `terraform.tfvars` e substitua as
 imagens pelos repositorios ECR correspondentes. O `apply` nao faz build nem
