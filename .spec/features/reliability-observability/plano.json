@@ -1,0 +1,129 @@
+{
+  "runId": "poc-payment-reliability-observability-msoo91kf",
+  "feature": "reliability-observability",
+  "agent": "codex",
+  "modo": "sequencial",
+  "paralelizar": null,
+  "modeloForcado": null,
+  "esforcoForcado": null,
+  "geradoEm": "2026-08-11 13:03",
+  "branchTrabalho": "spec/reliability-observability",
+  "baseDir": ".spec/features/reliability-observability",
+  "specDir": ".spec",
+  "repoName": "poc-payment",
+  "logsDir": "../onp-worktrees/poc-payment-reliability-observability-logs",
+  "ondas": [],
+  "faixas": [],
+  "sequenciais": [
+    {
+      "id": "T-010",
+      "titulo": "Harden Java idempotency and telemetry",
+      "modelo": "gpt-5.6-luna",
+      "esforco": "high",
+      "arquivos": [
+        "services/payment-orchestrator-java/src/main/java/**",
+        "services/payment-orchestrator-java/src/main/resources/**",
+        "services/payment-orchestrator-java/src/test/java/**",
+        "services/payment-orchestrator-java/src/test/resources/**",
+        "contracts/payment-events.schema.json"
+      ],
+      "refs": [
+        "US-007",
+        "US-008",
+        "AC-017",
+        "AC-018",
+        "AC-021",
+        "AC-022",
+        "AC-023",
+        "AC-024"
+      ]
+    },
+    {
+      "id": "T-011",
+      "titulo": "Harden Kotlin bank rail idempotency and telemetry",
+      "modelo": "gpt-5.6-luna",
+      "esforco": "high",
+      "arquivos": [
+        "services/pix-boleto-kotlin/src/main/kotlin/**",
+        "services/pix-boleto-kotlin/src/main/resources/**",
+        "services/pix-boleto-kotlin/src/test/kotlin/**"
+      ],
+      "refs": [
+        "US-007",
+        "US-008",
+        "AC-019",
+        "AC-021",
+        "AC-022",
+        "AC-023",
+        "AC-024"
+      ]
+    },
+    {
+      "id": "T-012",
+      "titulo": "Harden C# card idempotency and telemetry",
+      "modelo": "gpt-5.6-luna",
+      "esforco": "high",
+      "arquivos": [
+        "services/card-payment-csharp/src/CardPaymentService/**",
+        "services/card-payment-csharp/tests/**"
+      ],
+      "refs": [
+        "US-007",
+        "US-008",
+        "AC-020",
+        "AC-021",
+        "AC-022",
+        "AC-023",
+        "AC-024"
+      ]
+    },
+    {
+      "id": "T-013",
+      "titulo": "Expand AWS observability and repository proofs",
+      "modelo": "gpt-5.6-luna",
+      "esforco": "medium",
+      "arquivos": [
+        "infra/aws/terraform/observability.tf",
+        "infra/aws/terraform/ecs.tf",
+        ".spec/static-tests/reliability-observability.test.mjs",
+        ".spec/run-tests.mjs",
+        "onpspec.config.json",
+        "docs/architecture.md",
+        "docs/observability.md",
+        "contracts/payment-events.schema.json"
+      ],
+      "refs": [
+        "US-008",
+        "AC-022",
+        "AC-023",
+        "AC-024",
+        "AC-025"
+      ]
+    },
+    {
+      "id": "T-014",
+      "titulo": "Add concurrency and cross-service integration tests",
+      "modelo": "gpt-5.6-luna",
+      "esforco": "medium",
+      "arquivos": [
+        "services/payment-orchestrator-java/src/test/**",
+        "services/pix-boleto-kotlin/src/test/**",
+        "services/card-payment-csharp/tests/**",
+        ".spec/static-tests/reliability-observability.test.mjs"
+      ],
+      "refs": [
+        "US-007",
+        "US-008",
+        "AC-017",
+        "AC-018",
+        "AC-019",
+        "AC-020",
+        "AC-021",
+        "AC-023",
+        "AC-024"
+      ]
+    }
+  ],
+  "concluidas": [],
+  "avisos": []
+}
