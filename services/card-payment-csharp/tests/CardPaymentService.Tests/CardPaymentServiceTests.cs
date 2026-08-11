@@ -31,4 +31,34 @@ public sealed class CardPaymentServiceTests
         Assert.Equal(PaymentProvider.Stripe, second.Provider);
         Assert.Equal(CardPaymentStatus.Authorized, second.Status);
     }
+
+    [Fact]
+    public async Task AuthorizeAsync_RejectsChangedPayloadForSameKey_spec_AC_021()
+    {
+        var service = new ApplicationCardPaymentService(
+            new ICardProviderAdapter[] { new StripeCardAdapter() },
+            new InMemoryIdempotencyStore());
+        var command = new CardPaymentCommand("card-conflict", 10m, "BRL", 1, "card_token", PaymentProvider.Stripe);
+
+        await service.AuthorizeAsync(command, CancellationToken.None);
+
+        await Assert.ThrowsAsync<IdempotencyConflictException>(() => service.AuthorizeAsync(
+            command with { Amount = 11m }, CancellationToken.None));
+    }
+
+    [Fact]
+    public async Task AuthorizeAsync_InvokesProviderOnceForConcurrentDuplicates_spec_AC_020()
+    {
+        var service = new ApplicationCardPaymentService(
+            new ICardProviderAdapter[] { new StripeCardAdapter() },
+            new InMemoryIdempotencyStore());
+        var command = new CardPaymentCommand("card-concurrent", 10m, "BRL", 1, "card_token", PaymentProvider.Stripe);
+
+        Task<CardPaymentResult>[] calls = Enumerable.Range(0, 6)
+            .Select(_ => service.AuthorizeAsync(command, CancellationToken.None))
+            .ToArray();
+        CardPaymentResult[] results = await Task.WhenAll(calls);
+
+        Assert.Single(results.Select(result => result.PaymentId).Distinct());
+    }
 }
