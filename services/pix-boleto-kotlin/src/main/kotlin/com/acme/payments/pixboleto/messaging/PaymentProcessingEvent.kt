@@ -11,5 +11,6 @@ data class PaymentProcessingEvent(
     val amount: BigDecimal = BigDecimal.ZERO,
     val currency: String = "",
     val provider: String? = null,
+    val correlationId: String = "",
     val metadata: Map<String, Any?> = emptyMap(),
 )
