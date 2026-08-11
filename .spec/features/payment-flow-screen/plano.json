@@ -1,0 +1,149 @@
+{
+  "runId": "poc-payment-payment-flow-screen-msolmcxk",
+  "feature": "payment-flow-screen",
+  "agent": "codex",
+  "modo": "paralelo",
+  "paralelizar": null,
+  "modeloForcado": null,
+  "esforcoForcado": null,
+  "geradoEm": "2026-08-11 11:50",
+  "branchTrabalho": "spec/payment-flow-screen",
+  "baseDir": ".spec/features/payment-flow-screen",
+  "specDir": ".spec",
+  "repoName": "poc-payment",
+  "logsDir": "../onp-worktrees/poc-payment-payment-flow-screen-logs",
+  "ondas": [
+    [
+      "faixa-1",
+      "faixa-2",
+      "faixa-3"
+    ],
+    [
+      "faixa-4"
+    ]
+  ],
+  "faixas": [
+    {
+      "id": "faixa-1",
+      "branch": "spec/payment-flow-screen-faixa-1",
+      "worktree": "../onp-worktrees/poc-payment-payment-flow-screen-faixa-1",
+      "tarefas": [
+        {
+          "id": "T-005",
+          "titulo": "Criar a interface visual do fluxo",
+          "modelo": "gpt-5.6-luna",
+          "esforco": "low",
+          "arquivos": [
+            "web/payment-flow/index.html",
+            "web/payment-flow/styles.css"
+          ],
+          "refs": [
+            "US-005",
+            "AC-007",
+            "AC-008",
+            "AC-012"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "faixa-2",
+      "branch": "spec/payment-flow-screen-faixa-2",
+      "worktree": "../onp-worktrees/poc-payment-payment-flow-screen-faixa-2",
+      "tarefas": [
+        {
+          "id": "T-006",
+          "titulo": "Implementar interações e validação local",
+          "modelo": "gpt-5.6-luna",
+          "esforco": "low",
+          "arquivos": [
+            "web/payment-flow/app.js",
+            "web/payment-flow/payment-flow-core.js"
+          ],
+          "refs": [
+            "US-005",
+            "AC-009",
+            "AC-010",
+            "AC-011"
+          ]
+        },
+        {
+          "id": "T-007",
+          "titulo": "Criar testes unitários da lógica do fluxo",
+          "modelo": "gpt-5.6-luna",
+          "esforco": "low",
+          "arquivos": [
+            "web/payment-flow/tests/payment-flow.unit.test.mjs",
+            "web/payment-flow/payment-flow-core.js"
+          ],
+          "refs": [
+            "US-006",
+            "AC-014"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "faixa-3",
+      "branch": "spec/payment-flow-screen-faixa-3",
+      "worktree": "../onp-worktrees/poc-payment-payment-flow-screen-faixa-3",
+      "tarefas": [
+        {
+          "id": "T-008",
+          "titulo": "Criar testes de integração do navegador",
+          "modelo": "gpt-5.6-luna",
+          "esforco": "medium",
+          "arquivos": [
+            "web/payment-flow/tests/payment-flow.integration.spec.mjs",
+            "web/payment-flow/playwright.config.mjs",
+            "web/payment-flow/test-server.mjs",
+            "web/payment-flow/package.json",
+            "web/payment-flow/package-lock.json"
+          ],
+          "refs": [
+            "US-006",
+            "AC-016"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "faixa-4",
+      "branch": "spec/payment-flow-screen-faixa-4",
+      "worktree": "../onp-worktrees/poc-payment-payment-flow-screen-faixa-4",
+      "tarefas": [
+        {
+          "id": "T-009",
+          "titulo": "Documentar e conectar as provas ao CI/CD",
+          "modelo": "gpt-5.6-luna",
+          "esforco": "medium",
+          "arquivos": [
+            "docs/payment-flow.md",
+            "web/payment-flow/README.md",
+            ".spec/static-tests/payment-flow-screen.test.mjs",
+            ".spec/run-tests.mjs",
+            "onpspec.config.json",
+            ".github/workflows/ci.yml",
+            ".gitignore"
+          ],
+          "refs": [
+            "US-006",
+            "AC-007",
+            "AC-008",
+            "AC-009",
+            "AC-010",
+            "AC-011",
+            "AC-012",
+            "AC-013",
+            "AC-014",
+            "AC-015",
+            "AC-016"
+          ]
+        }
+      ]
+    }
+  ],
+  "sequenciais": [],
+  "concluidas": [],
+  "avisos": []
+}
