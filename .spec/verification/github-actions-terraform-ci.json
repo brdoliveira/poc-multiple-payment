@@ -1,0 +1,32 @@
+{
+  "feature": "github-actions-terraform-ci",
+  "timestamp": "2026-08-11T14:04:02.569Z",
+  "gitRev": "e0556c4",
+  "command": "node .spec/run-tests.mjs",
+  "reporter": "tap",
+  "exitCode": 0,
+  "testsParsed": 52,
+  "results": {
+    "AC-026": {
+      "status": "pass",
+      "testName": "github-actions-terraform-ci-static Workflow instala Terraform e valida sem AWS em pull requests @spec:AC-026",
+      "method": "tap"
+    },
+    "AC-027": {
+      "status": "pass",
+      "testName": "github-actions-terraform-ci-static Plan usa OIDC e backend S3 sem chaves AWS estaticas @spec:AC-027",
+      "method": "tap"
+    },
+    "AC-028": {
+      "status": "pass",
+      "testName": "github-actions-terraform-ci-static Apply e manual, restrito a main e ao environment de desenvolvimento @spec:AC-028",
+      "method": "tap"
+    },
+    "AC-029": {
+      "status": "pass",
+      "testName": "github-actions-terraform-ci-static Documentacao lista OIDC, state, variaveis e ausencia de apply automatico @spec:AC-029",
+      "method": "tap"
+    }
+  },
+  "principles": {}
+}
