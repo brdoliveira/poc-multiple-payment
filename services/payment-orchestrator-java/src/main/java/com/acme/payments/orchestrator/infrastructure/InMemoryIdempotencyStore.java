@@ -2,15 +2,22 @@ package com.acme.payments.orchestrator.infrastructure;
 
 import com.acme.payments.orchestrator.application.IdempotencyStore;
 
-import java.util.Set;
+import com.acme.payments.orchestrator.application.IdempotencyRecord;
+import java.util.Map;
+import java.util.Optional;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class InMemoryIdempotencyStore implements IdempotencyStore {
-    private final Set<String> reservedKeys = ConcurrentHashMap.newKeySet();
+    private final Map<String, IdempotencyRecord> records = new ConcurrentHashMap<>();
 
     @Override
-    public boolean reserve(String key, UUID paymentId) {
-        return reservedKeys.add(key);
+    public Optional<IdempotencyRecord> find(String key) {
+        return Optional.ofNullable(records.get(key));
+    }
+
+    @Override
+    public boolean reserve(String key, UUID paymentId, String requestFingerprint) {
+        return records.putIfAbsent(key, new IdempotencyRecord(paymentId, requestFingerprint, "RESERVED")) == null;
     }
 }
