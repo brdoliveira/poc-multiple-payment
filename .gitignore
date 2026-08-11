@@ -8,6 +8,9 @@ bin/
 obj/
 TestResults/
 .local-tools/
+node_modules/
+.spec/test-results/
+web/payment-flow/test-results/
 .spec/test-results/
 
 # Terraform
