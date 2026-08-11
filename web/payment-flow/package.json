@@ -1,0 +1,13 @@
+{
+  "name": "payment-flow-screen",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test:unit": "node --test tests/payment-flow.unit.test.mjs",
+    "test:integration": "node node_modules/@playwright/test/cli.js test",
+    "test": "npm run test:unit && npm run test:integration"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0"
+  }
+}
