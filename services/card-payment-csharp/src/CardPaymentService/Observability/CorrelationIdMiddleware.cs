@@ -1,3 +1,5 @@
+using System.Diagnostics;
+
 namespace Acme.Payments.CardPaymentService.Observability;
 
 public sealed class CorrelationIdMiddleware
@@ -14,16 +16,27 @@ public sealed class CorrelationIdMiddleware
 
     public async Task InvokeAsync(HttpContext context, ILogger<CorrelationIdMiddleware> logger)
     {
-        string? correlationId = context.Request.Headers[Header].FirstOrDefault();
-        if (string.IsNullOrWhiteSpace(correlationId))
+        string correlationId = context.Request.Headers[Header].FirstOrDefault() ?? string.Empty;
+        if (!IsSafeCorrelationId(correlationId))
         {
             correlationId = Guid.NewGuid().ToString();
         }
 
         context.Response.Headers[Header] = correlationId;
+        long startedAt = Stopwatch.GetTimestamp();
         using (logger.BeginScope(new Dictionary<string, object> { [LogScopeKey] = correlationId }))
         {
-            await next(context);
+            try
+            {
+                await next(context);
+            }
+            finally
+            {
+                logger.LogInformation("http_outcome service=card-payment method={Method} route={Route} status={Status} duration_ms={DurationMs} correlation_id={CorrelationId}", context.Request.Method, context.Request.Path, context.Response.StatusCode, Stopwatch.GetElapsedTime(startedAt).TotalMilliseconds, correlationId);
+            }
         }
     }
+
+    private static bool IsSafeCorrelationId(string? value) =>
+        value is { Length: > 0 and <= 128 } && value.All(c => char.IsLetterOrDigit(c) || "._:-".Contains(c));
 }
