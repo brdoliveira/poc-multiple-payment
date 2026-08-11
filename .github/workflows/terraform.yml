@@ -1,0 +1,151 @@
+name: terraform
+
+on:
+  pull_request:
+    paths:
+      - "infra/aws/terraform/**"
+      - "docs/terraform-ci.md"
+      - ".github/workflows/terraform.yml"
+  push:
+    branches:
+      - main
+    paths:
+      - "infra/aws/terraform/**"
+      - "docs/terraform-ci.md"
+      - ".github/workflows/terraform.yml"
+  workflow_dispatch:
+    inputs:
+      apply:
+        description: "Aplicar a infraestrutura no environment terraform-dev"
+        required: true
+        default: false
+        type: boolean
+
+env:
+  TERRAFORM_VERSION: "1.15.8"
+  TF_DIR: infra/aws/terraform
+  AWS_REGION: ${{ vars.AWS_REGION || 'sa-east-1' }}
+  TF_ENVIRONMENT: ${{ vars.TF_ENVIRONMENT || 'dev' }}
+
+jobs:
+  terraform-fmt-validate:
+    name: Terraform fmt e validate
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v4
+        with:
+          terraform_version: ${{ env.TERRAFORM_VERSION }}
+      - name: Format check
+        working-directory: ${{ env.TF_DIR }}
+        run: terraform fmt -check -recursive
+      - name: Init without backend
+        working-directory: ${{ env.TF_DIR }}
+        run: terraform init -backend=false -input=false
+      - name: Validate
+        working-directory: ${{ env.TF_DIR }}
+        run: terraform validate -no-color
+
+  terraform-plan:
+    name: Terraform plan
+    if: >-
+      ${{
+        (
+          github.event_name == 'push' &&
+          github.ref == 'refs/heads/main' &&
+          vars.AWS_ROLE_TO_ASSUME != '' &&
+          vars.TF_STATE_BUCKET != ''
+        ) ||
+        (
+          github.event_name == 'workflow_dispatch' &&
+          inputs.apply != true &&
+          github.ref == 'refs/heads/main' &&
+          vars.AWS_ROLE_TO_ASSUME != '' &&
+          vars.TF_STATE_BUCKET != ''
+        )
+      }}
+    needs: terraform-fmt-validate
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v4
+        with:
+          terraform_version: ${{ env.TERRAFORM_VERSION }}
+      - name: Configure AWS credentials with OIDC
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.AWS_ROLE_TO_ASSUME }}
+          aws-region: ${{ env.AWS_REGION }}
+      - name: Init remote backend
+        working-directory: ${{ env.TF_DIR }}
+        run: >-
+          terraform init -input=false
+          -backend-config="bucket=${{ vars.TF_STATE_BUCKET }}"
+          -backend-config="key=payments/${{ env.TF_ENVIRONMENT }}/terraform.tfstate"
+          -backend-config="region=${{ env.AWS_REGION }}"
+          -backend-config="encrypt=true"
+          -backend-config="use_lockfile=true"
+      - name: Plan
+        working-directory: ${{ env.TF_DIR }}
+        env:
+          TF_VAR_aws_region: ${{ env.AWS_REGION }}
+          TF_VAR_environment: ${{ env.TF_ENVIRONMENT }}
+          TF_VAR_internal_api_key: ${{ secrets.TF_INTERNAL_API_KEY }}
+        run: terraform plan -input=false -no-color
+
+  terraform-apply:
+    name: Terraform apply manual
+    if: >-
+      ${{
+        github.event_name == 'workflow_dispatch' &&
+        inputs.apply == true &&
+        github.ref == 'refs/heads/main' &&
+        vars.AWS_ROLE_TO_ASSUME != '' &&
+        vars.TF_STATE_BUCKET != ''
+      }}
+    needs: terraform-fmt-validate
+    runs-on: ubuntu-latest
+    environment: terraform-dev
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v4
+        with:
+          terraform_version: ${{ env.TERRAFORM_VERSION }}
+      - name: Configure AWS credentials with OIDC
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.AWS_ROLE_TO_ASSUME }}
+          aws-region: ${{ env.AWS_REGION }}
+      - name: Init remote backend
+        working-directory: ${{ env.TF_DIR }}
+        run: >-
+          terraform init -input=false
+          -backend-config="bucket=${{ vars.TF_STATE_BUCKET }}"
+          -backend-config="key=payments/${{ env.TF_ENVIRONMENT }}/terraform.tfstate"
+          -backend-config="region=${{ env.AWS_REGION }}"
+          -backend-config="encrypt=true"
+          -backend-config="use_lockfile=true"
+      - name: Create plan for approval
+        working-directory: ${{ env.TF_DIR }}
+        env:
+          TF_VAR_aws_region: ${{ env.AWS_REGION }}
+          TF_VAR_environment: ${{ env.TF_ENVIRONMENT }}
+          TF_VAR_internal_api_key: ${{ secrets.TF_INTERNAL_API_KEY }}
+        run: terraform plan -input=false -no-color -out=tfplan
+      - name: Apply approved plan
+        working-directory: ${{ env.TF_DIR }}
+        run: terraform apply -input=false -auto-approve tfplan
