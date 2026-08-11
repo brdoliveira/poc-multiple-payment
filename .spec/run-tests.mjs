@@ -18,6 +18,8 @@ const gradleBin = path.join(rootDir, '.local-tools', 'gradle-8.8', 'bin');
 const mavenCommand = localCommand(mavenBin, process.platform === 'win32' ? 'mvn.cmd' : 'mvn') || 'mvn';
 const gradleCommand = localCommand(gradleBin, process.platform === 'win32' ? 'gradle.bat' : 'gradle') || 'gradle';
 const dotnetCommand = localDotnetCommand();
+const npmCommand = process.platform === 'win32' ? 'npm.cmd' : 'npm';
+const npxCommand = process.platform === 'win32' ? 'npx.cmd' : 'npx';
 
 rmSync(resultsDir, { recursive: true, force: true });
 mkdirSync(resultsDir, { recursive: true });
@@ -71,10 +73,71 @@ const commands = [
     reportType: 'trx',
   },
   {
+    name: 'payment-flow-dependencies',
+    cwd: path.join(rootDir, 'web', 'payment-flow'),
+    command: npmCommand,
+    args: ['ci', '--ignore-scripts'],
+    env: {},
+    reports: [],
+  },
+  {
+    name: 'payment-flow-browser-install',
+    cwd: path.join(rootDir, 'web', 'payment-flow'),
+    command: npxCommand,
+    args: ['playwright', 'install', 'chromium'],
+    env: {},
+    reports: [],
+  },
+  {
+    name: 'payment-flow-unit',
+    cwd: path.join(rootDir, 'web', 'payment-flow'),
+    command: process.execPath,
+    args: ['--test', '--test-reporter=tap', path.join(rootDir, 'web', 'payment-flow', 'tests', 'payment-flow.unit.test.mjs')],
+    env: {},
+    reports: [],
+    reportType: 'tap',
+  },
+  {
+    name: 'payment-flow-integration',
+    cwd: path.join(rootDir, 'web', 'payment-flow'),
+    command: npmCommand,
+    args: ['run', 'test:integration'],
+    env: {},
+    reports: [path.join(rootDir, 'web', 'payment-flow', 'test-results')],
+    reportType: 'junit',
+  },
+  {
     name: 'aws-terraform-payment-poc-static',
     cwd: rootDir,
     command: process.execPath,
     args: ['--test', '--test-reporter=tap', path.join(rootDir, '.spec', 'static-tests', 'aws-terraform-payment-poc.test.mjs')],
+    env: {},
+    reports: [],
+    reportType: 'tap',
+  },
+  {
+    name: 'payment-flow-screen-static',
+    cwd: rootDir,
+    command: process.execPath,
+    args: ['--test', '--test-reporter=tap', path.join(rootDir, '.spec', 'static-tests', 'payment-flow-screen.test.mjs')],
+    env: {},
+    reports: [],
+    reportType: 'tap',
+  },
+  {
+    name: 'reliability-observability-static',
+    cwd: rootDir,
+    command: process.execPath,
+    args: ['--test', '--test-reporter=tap', path.join(rootDir, '.spec', 'static-tests', 'reliability-observability.test.mjs')],
+    env: {},
+    reports: [],
+    reportType: 'tap',
+  },
+  {
+    name: 'github-actions-terraform-ci-static',
+    cwd: rootDir,
+    command: process.execPath,
+    args: ['--test', '--test-reporter=tap', path.join(rootDir, '.spec', 'static-tests', 'github-actions-terraform-ci.test.mjs')],
     env: {},
     reports: [],
     reportType: 'tap',
