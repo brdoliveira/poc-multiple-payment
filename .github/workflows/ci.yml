@@ -55,6 +55,22 @@ jobs:
       - uses: actions/checkout@v4
       - run: docker compose build
 
+  payment-flow:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: web/payment-flow
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: web/payment-flow/package-lock.json
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm test
+
   spec-static:
     runs-on: ubuntu-latest
     steps:
@@ -62,4 +78,4 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
-      - run: node --test .spec/static-tests/aws-terraform-payment-poc.test.mjs
+      - run: node --test .spec/static-tests/aws-terraform-payment-poc.test.mjs .spec/static-tests/payment-flow-screen.test.mjs .spec/static-tests/reliability-observability.test.mjs .spec/static-tests/github-actions-terraform-ci.test.mjs
