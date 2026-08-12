@@ -1,0 +1,32 @@
+{
+  "feature": "public-repository-readiness",
+  "timestamp": "2026-08-12T22:40:22.487Z",
+  "gitRev": "a0a5337",
+  "command": "node .spec/run-tests.mjs",
+  "reporter": "tap",
+  "exitCode": 0,
+  "testsParsed": 59,
+  "results": {
+    "AC-033": {
+      "status": "pass",
+      "testName": "public-repository-static arquivos versionados nao expoem dados pessoais ou segredos @spec:AC-033",
+      "method": "tap"
+    },
+    "AC-034": {
+      "status": "pass",
+      "testName": "public-repository-static README orienta o leitor sobre escopo, execucao e limites @spec:AC-034",
+      "method": "tap"
+    },
+    "AC-035": {
+      "status": "pass",
+      "testName": "public-repository-static SECURITY.md orienta reporte privado e nao reutilizacao de credenciais @spec:AC-035",
+      "method": "tap"
+    },
+    "AC-036": {
+      "status": "pass",
+      "testName": "public-repository-static CI executa a auditoria de conteudo publico @spec:AC-036",
+      "method": "tap"
+    }
+  },
+  "principles": {}
+}

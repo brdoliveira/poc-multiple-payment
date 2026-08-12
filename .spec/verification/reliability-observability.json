@@ -1,11 +1,11 @@
 {
   "feature": "reliability-observability",
-  "timestamp": "2026-08-12T21:24:03.266Z",
-  "gitRev": "c7ff8a4",
+  "timestamp": "2026-08-12T22:39:52.617Z",
+  "gitRev": "a0a5337",
   "command": "node .spec/run-tests.mjs",
   "reporter": "tap",
-  "exitCode": 1,
-  "testsParsed": 54,
+  "exitCode": 0,
+  "testsParsed": 59,
   "results": {
     "AC-017": {
       "status": "pass",

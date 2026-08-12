@@ -151,6 +151,15 @@ const commands = [
     reports: [],
     reportType: 'tap',
   },
+  {
+    name: 'public-repository-static',
+    cwd: rootDir,
+    command: process.execPath,
+    args: ['--test', '--test-reporter=tap', path.join(rootDir, '.spec', 'static-tests', 'public-repository.test.mjs')],
+    env: {},
+    reports: [],
+    reportType: 'tap',
+  },
 ];
 
 const commandResults = [];

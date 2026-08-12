@@ -2124,6 +2124,15 @@
       "primeiraVez": "2026-08-12T21:24:16.776Z",
       "ultimaVez": "2026-08-12T21:24:16.776Z",
       "gitRev": "c7ff8a4"
+    },
+    "VERIFY_OBSOLETO::ecs-deploy-hardening::—": {
+      "codigo": "VERIFY_OBSOLETO",
+      "feature": "ecs-deploy-hardening",
+      "ref": "—",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-12T22:40:26.966Z",
+      "ultimaVez": "2026-08-12T22:40:26.967Z",
+      "gitRev": "a0a5337"
     }
   }
 }

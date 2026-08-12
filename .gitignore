@@ -26,3 +26,13 @@ infra/aws/terraform/crash.log
 # OS
 .DS_Store
 Thumbs.db
+
+# Local secrets and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.p12
+*.pfx
+*.key
+credentials.json

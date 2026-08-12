@@ -1,147 +1,150 @@
 # poc-multiple-payment
 
-PoC de uma plataforma de pagamentos com microsservicos escritos em Java, Kotlin
-e C#, suportando Pix, cartao e boleto por meio de adapters para Asaas, Mercado
-Pago, PagBank, iugu e Stripe.
+PoC educacional de uma plataforma de pagamentos com microsservicos em Java,
+Kotlin e C#. O projeto demonstra orquestracao, idempotencia, eventos,
+observabilidade, conciliacao e uma base Terraform para AWS.
 
-## Objetivo
+> **Status:** PoC para estudo e evolucao arquitetural. Nao e um produto pronto
+> para producao e nao deve receber dados reais de clientes, cartoes ou contas.
 
-Demonstrar uma arquitetura senior para pagamentos:
+## O que esta demonstrado
 
-- orquestracao do ciclo de vida do pagamento;
-- separacao por meio de pagamento;
-- adapters por provedor;
-- idempotencia;
-- SQL migrations;
-- uso complementar de NoSQL;
-- outbox e eventos para processamento assincrono;
-- webhooks com payload bruto em NoSQL;
-- conciliacao de pagamentos pendentes;
-- consumidores RabbitMQ por meio de pagamento;
-- filas de retry e DLQ por consumidor;
-- API key interna e correlation-id;
-- testes unitarios por servico;
-- pipeline CI para Java, Kotlin, C# e Docker build;
-- documentacao de evolucao do projeto.
+- Orquestracao de pagamentos e status principal;
+- Fluxos separados para Pix, boleto e cartao;
+- Idempotencia com fingerprint da requisicao;
+- PostgreSQL para estado transacional e migrations;
+- MongoDB/DocumentDB para dados operacionais e webhooks;
+- Outbox, RabbitMQ, retry e DLQ;
+- Correlation ID, logs estruturados e metricas;
+- Tela local para revisar o fluxo de pagamento;
+- Terraform para ECS Fargate, ECR, RDS, DocumentDB, Amazon MQ, ALB, WAF,
+  Secrets Manager e CloudWatch.
+
+## Arquitetura
+
+```text
+Cliente
+  |
+  v
+ALB / tela local
+  |
+  +--> payment-orchestrator-java  --> PostgreSQL / Outbox
+  +--> pix-boleto-kotlin          --> PostgreSQL / RabbitMQ
+  +--> card-payment-csharp       --> PostgreSQL / MongoDB / RabbitMQ
+                                      |
+                                      +--> adapters de provedores (PoC)
+```
+
+Diagramas completos: [arquitetura-fluxo-pagamento.svg](arquitetura-fluxo-pagamento.svg)
+e [docs/architecture.md](docs/architecture.md).
 
 ## Microsservicos
 
-| Servico | Linguagem | Responsabilidade |
+| Servico | Stack | Responsabilidade |
 | --- | --- | --- |
-| `payment-orchestrator-java` | Java / Spring Boot | Criacao do pagamento, idempotencia, status principal e publicacao de eventos |
-| `pix-boleto-kotlin` | Kotlin / Spring Boot | Geracao de cobrancas Pix e boleto, roteamento por provedor e regras por rail |
-| `card-payment-csharp` | C# / .NET | Autorizacao de cartao, captura logica, escolha de gateway e idempotencia |
+| `payment-orchestrator-java` | Java 17 / Spring Boot | Criacao do pagamento, idempotencia e outbox |
+| `pix-boleto-kotlin` | Kotlin / Spring Boot | Cobrancas Pix/boleto e processamento por rail |
+| `card-payment-csharp` | C# / .NET 8 | Autorizacao de cartao e webhooks |
 
-## Provedores
+Os adapters de provedores sao pontos de extensao da PoC. Nao configure tokens
+reais de Asaas, Mercado Pago, PagBank, iugu ou Stripe neste repositorio.
 
-| Provedor | Pix | Cartao | Boleto | Melhor uso |
-| --- | --- | --- | --- | --- |
-| Asaas | Sim | Sim | Sim | cobrancas, recorrencia e automacao financeira |
-| Mercado Pago | Sim | Sim | Sim | checkout rapido e ecossistema Mercado Livre |
-| PagBank | Sim | Sim | Sim | carteira digital e adquirencia popular no Brasil |
-| iugu | Sim | Sim | Sim | SaaS, marketplace e split complexo |
-| Stripe | Limitado no Brasil | Sim | Limitado | cartao, internacionalizacao e APIs globais |
+## Pre-requisitos
 
-## Infraestrutura local
+- Docker Desktop com Docker Compose;
+- Java 17;
+- .NET SDK 8;
+- Node.js 22;
+- Terraform 1.15.8 ou compativel com `infra/aws/terraform/versions.tf`.
+
+## Inicio rapido local
+
+Suba as dependencias e os tres servicos:
 
 ```bash
-docker compose up -d
+docker compose up -d --build
 ```
 
 Servicos locais:
 
-- Orquestrador Java em `localhost:8080`;
-- Pix/boleto Kotlin em `localhost:8081`;
-- Cartao/Webhook C# em `localhost:8082`;
-- PostgreSQL em `localhost:5432`;
-- MongoDB em `localhost:27017`;
-- RabbitMQ em `localhost:5672` e console em `localhost:15672`.
+| Componente | Endereco |
+| --- | --- |
+| Orquestrador Java | `http://localhost:8080` |
+| Pix/boleto Kotlin | `http://localhost:8081` |
+| Cartao/Webhook C# | `http://localhost:8082` |
+| RabbitMQ console | `http://localhost:15672` |
 
-## Infraestrutura AWS
+Os valores locais sao ficticios: `payments`, `guest` e `local-dev-key`. Nunca
+os reutilize em AWS ou em qualquer ambiente compartilhado.
 
-O Terraform da PoC fica em `infra/aws/terraform`. Ele cria ECS Fargate/ECR para
-os tres microsservicos, RDS PostgreSQL, Amazon DocumentDB, Amazon MQ RabbitMQ,
-ALB, WAF, Secrets Manager e observabilidade basica.
-
-Consulte [infra/aws/terraform/README.md](infra/aws/terraform/README.md) para
-validar e aplicar a infraestrutura.
-
-## Banco SQL e NoSQL
-
-O PostgreSQL guarda o estado transacional confiavel:
-
-- pagamentos;
-- tentativas;
-- transacoes externas;
-- eventos outbox;
-- conciliacoes;
-- ledger financeiro.
-
-O MongoDB guarda dados operacionais flexiveis:
-
-- chaves de idempotencia;
-- payloads brutos de webhook;
-- snapshots de respostas dos provedores;
-- controle operacional de retry;
-- rastros de diagnostico.
-
-## Executando os servicos
-
-### Java
+Tela do fluxo de pagamento:
 
 ```bash
-cd services/payment-orchestrator-java
-mvn test
-mvn spring-boot:run
+cd web/payment-flow
+npm ci
+npm run test
 ```
 
-### Kotlin
+## Testes
+
+Por servico:
 
 ```bash
-cd services/pix-boleto-kotlin
-gradle test
-gradle bootRun
+cd services/payment-orchestrator-java && mvn test
+cd services/pix-boleto-kotlin && gradle test
+cd services/card-payment-csharp && dotnet test
 ```
 
-### C#
+Suite completa e auditoria spec:
 
 ```bash
-cd services/card-payment-csharp
-dotnet test
-dotnet run --project src/CardPaymentService
+node .spec/run-tests.mjs
+node <caminho-da-skill>/scripts/onp-spec.mjs audit --ci
 ```
 
-## Fluxo principal
+No CI do GitHub, Java, Kotlin, C#, Docker, tela, Terraform e a auditoria de
+conteudo publico rodam automaticamente.
 
-1. Cliente chama `POST /payments` no orquestrador.
-2. O orquestrador valida `idempotencyKey` e grava o pagamento.
-3. Eventos `PaymentCreated` e `PaymentProcessing` sao gravados na outbox.
-4. O servico especializado processa Pix, boleto ou cartao.
-5. O adapter do provedor chama Asaas, Mercado Pago, PagBank, iugu ou Stripe.
-6. O dispatcher publica eventos pendentes no RabbitMQ.
-7. Consumidores Kotlin/C# recebem `PaymentProcessing` em filas proprias.
-8. Falhas transitorias retornam para fila de retry e, apos o limite, seguem para DLQ.
-9. Webhooks armazenam payload bruto no MongoDB para auditoria operacional.
-10. A conciliacao reprocessa pagamentos pendentes de confirmacao.
+## Terraform e AWS
 
-## Endpoints principais
+O Terraform fica em [infra/aws/terraform](infra/aws/terraform). Ele nao faz
+build nem publica imagens. Antes de qualquer apply, publique as imagens reais
+no ECR e forneca `container_images` e `internal_api_key` por secrets/variaveis.
+Nao existe fallback para `nginx`.
 
-```text
-POST /payments
-GET  /payments/{paymentId}
-POST /reconciliation/payments/{paymentId}
-POST /reconciliation/stale-payments?olderThanMinutes=15
-POST /bank-rail/charges
-POST /cards/authorizations
-POST /webhooks/{provider}
-GET  /actuator/health
-GET  /health
+Validacao local sem acessar state remoto:
+
+```bash
+terraform -chdir=infra/aws/terraform init -backend=false
+terraform -chdir=infra/aws/terraform validate
 ```
 
-Endpoints de negocio exigem `X-Internal-Api-Key`. O valor local padrao da PoC e
-`local-dev-key`. Webhooks usam validacao de assinatura propria.
+Para CI/CD, consulte [docs/terraform-ci.md](docs/terraform-ci.md). O fluxo usa
+OIDC, state remoto S3 e `apply` manual protegido pelo environment
+`terraform-dev`.
 
-## Evolucao historica
+## Documentacao
 
-Os commits deste repositorio foram organizados com datas entre 01/07/2026 e
-22/07/2026 para simular a evolucao incremental do projeto.
+- [Fluxo de pagamento](docs/payment-flow.md)
+- [Arquitetura](docs/architecture.md)
+- [Matriz de provedores](docs/provider-matrix.md)
+- [Observabilidade, logs e idempotencia](docs/observability.md)
+- [Testes](docs/testing.md)
+- [CI/CD Terraform](docs/terraform-ci.md)
+- [Prontidao para repositorio publico](docs/public-repository-readiness.md)
+- [Politica de seguranca](SECURITY.md)
+
+## Limites conhecidos
+
+- Nao ha credenciais ou chamadas reais de provedores financeiros;
+- `terraform apply` em AWS ainda exige configuracao externa de OIDC, state,
+  ECR, secrets e permissao IAM;
+- A infraestrutura AWS gera custos e requer revisao de capacidade, backup,
+  TLS, rotacao de segredos e alta disponibilidade;
+- Exemplos locais nao representam uma politica de seguranca de producao.
+
+## Contribuicao
+
+Mantenha segredos fora do repositorio, adicione testes para novas regras e
+atualize a documentacao correspondente. Para vulnerabilidades, consulte
+[SECURITY.md](SECURITY.md) e nao abra uma issue publica com detalhes sensiveis.

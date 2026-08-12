@@ -1,11 +1,11 @@
 {
   "feature": "aws-terraform-payment-poc",
-  "timestamp": "2026-08-12T21:24:03.373Z",
-  "gitRev": "c7ff8a4",
+  "timestamp": "2026-08-12T22:38:15.504Z",
+  "gitRev": "a0a5337",
   "command": "node .spec/run-tests.mjs",
   "reporter": "tap",
-  "exitCode": 1,
-  "testsParsed": 54,
+  "exitCode": 0,
+  "testsParsed": 59,
   "results": {
     "AC-001": {
       "status": "pass",
