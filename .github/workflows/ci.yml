@@ -78,4 +78,4 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
-      - run: node --test .spec/static-tests/aws-terraform-payment-poc.test.mjs .spec/static-tests/payment-flow-screen.test.mjs .spec/static-tests/reliability-observability.test.mjs .spec/static-tests/github-actions-terraform-ci.test.mjs
+      - run: node --test .spec/static-tests/aws-terraform-payment-poc.test.mjs .spec/static-tests/payment-flow-screen.test.mjs .spec/static-tests/reliability-observability.test.mjs .spec/static-tests/github-actions-terraform-ci.test.mjs .spec/static-tests/ecs-deploy-hardening.test.mjs

@@ -30,8 +30,13 @@ O CI/CD usa backend S3 parametrizado. Consulte
 de apply antes de executar `plan` ou `apply` na AWS.
 
 Copie `terraform.tfvars.example` para `terraform.tfvars` e substitua as
-imagens pelos repositorios ECR correspondentes. O `apply` nao faz build nem
+imagens pelos repositorios ECR correspondentes. As tres imagens sao
+obrigatorias; nao existe fallback para `nginx`. O `apply` nao faz build nem
 publica imagens; essa etapa pertence ao pipeline de entrega.
+
+O health check do ECS e feito pelo target group do ALB nos endpoints
+`/actuator/health` e `/health`. Isso evita depender de `wget` ou `curl` nas
+imagens runtime dos microsservicos.
 
 ## Custos e seguranca
 

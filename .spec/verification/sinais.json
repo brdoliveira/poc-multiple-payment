@@ -1688,10 +1688,10 @@
       "codigo": "VERIFY_OBSOLETO",
       "feature": "aws-terraform-payment-poc",
       "ref": "—",
-      "ocorrencias": 3,
+      "ocorrencias": 4,
       "primeiraVez": "2026-08-11T11:50:30.314Z",
-      "ultimaVez": "2026-08-11T13:59:57.495Z",
-      "gitRev": "e0556c4"
+      "ultimaVez": "2026-08-12T21:22:22.502Z",
+      "gitRev": "c7ff8a4"
     },
     "ARQUIVO_INEXISTENTE::payment-flow-screen::T-006": {
       "codigo": "ARQUIVO_INEXISTENTE",
@@ -1760,10 +1760,10 @@
       "codigo": "VERIFY_OBSOLETO",
       "feature": "payment-flow-screen",
       "ref": "—",
-      "ocorrencias": 2,
+      "ocorrencias": 3,
       "primeiraVez": "2026-08-11T13:11:11.570Z",
-      "ultimaVez": "2026-08-11T13:59:57.496Z",
-      "gitRev": "e0556c4"
+      "ultimaVez": "2026-08-12T21:22:22.503Z",
+      "gitRev": "c7ff8a4"
     },
     "ARQUIVO_INEXISTENTE::reliability-observability::T-010": {
       "codigo": "ARQUIVO_INEXISTENTE",
@@ -1805,10 +1805,10 @@
       "codigo": "VERIFY_OBSOLETO",
       "feature": "reliability-observability",
       "ref": "—",
-      "ocorrencias": 2,
+      "ocorrencias": 3,
       "primeiraVez": "2026-08-11T13:11:11.570Z",
-      "ultimaVez": "2026-08-11T13:59:57.496Z",
-      "gitRev": "e0556c4"
+      "ultimaVez": "2026-08-12T21:22:22.503Z",
+      "gitRev": "c7ff8a4"
     },
     "ARQUIVO_ORFAO::—::.spec/features/reliability-observability/design.md": {
       "codigo": "ARQUIVO_ORFAO",
@@ -2061,6 +2061,69 @@
       "primeiraVez": "2026-08-11T14:01:34.249Z",
       "ultimaVez": "2026-08-11T14:01:34.249Z",
       "gitRev": "e0556c4"
+    },
+    "VERIFY_OBSOLETO::github-actions-terraform-ci::—": {
+      "codigo": "VERIFY_OBSOLETO",
+      "feature": "github-actions-terraform-ci",
+      "ref": "—",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-12T21:22:22.503Z",
+      "ultimaVez": "2026-08-12T21:22:22.503Z",
+      "gitRev": "c7ff8a4"
+    },
+    "ARQUIVO_ORFAO::—::.spec/features/ecs-deploy-hardening/design.md": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": ".spec/features/ecs-deploy-hardening/design.md",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-12T21:22:22.503Z",
+      "ultimaVez": "2026-08-12T21:22:22.503Z",
+      "gitRev": "c7ff8a4"
+    },
+    "ARQUIVO_ORFAO::—::.spec/features/ecs-deploy-hardening/spec.md": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": ".spec/features/ecs-deploy-hardening/spec.md",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-12T21:22:22.503Z",
+      "ultimaVez": "2026-08-12T21:22:22.503Z",
+      "gitRev": "c7ff8a4"
+    },
+    "ARQUIVO_ORFAO::—::.spec/features/ecs-deploy-hardening/tasks.md": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": ".spec/features/ecs-deploy-hardening/tasks.md",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-12T21:22:22.503Z",
+      "ultimaVez": "2026-08-12T21:22:22.503Z",
+      "gitRev": "c7ff8a4"
+    },
+    "TASK_CONCLUIDA_SEM_PROVA::payment-flow-screen::T-008": {
+      "codigo": "TASK_CONCLUIDA_SEM_PROVA",
+      "feature": "payment-flow-screen",
+      "ref": "T-008",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-12T21:24:16.775Z",
+      "ultimaVez": "2026-08-12T21:24:16.776Z",
+      "gitRev": "c7ff8a4"
+    },
+    "TASK_CONCLUIDA_SEM_PROVA::payment-flow-screen::T-009": {
+      "codigo": "TASK_CONCLUIDA_SEM_PROVA",
+      "feature": "payment-flow-screen",
+      "ref": "T-009",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-12T21:24:16.776Z",
+      "ultimaVez": "2026-08-12T21:24:16.776Z",
+      "gitRev": "c7ff8a4"
+    },
+    "AC_SEM_PROVA::payment-flow-screen::AC-016": {
+      "codigo": "AC_SEM_PROVA",
+      "feature": "payment-flow-screen",
+      "ref": "AC-016",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-12T21:24:16.776Z",
+      "ultimaVez": "2026-08-12T21:24:16.776Z",
+      "gitRev": "c7ff8a4"
     }
   }
 }

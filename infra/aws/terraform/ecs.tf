@@ -36,9 +36,6 @@ resource "aws_service_discovery_service" "service" {
     routing_policy = "MULTIVALUE"
   }
 
-  health_check_custom_config {
-    failure_threshold = 1
-  }
 }
 
 resource "aws_ecs_task_definition" "service" {
@@ -55,7 +52,7 @@ resource "aws_ecs_task_definition" "service" {
   container_definitions = jsonencode([
     {
       name      = each.key
-      image     = lookup(var.container_images, each.key, local.default_container_image)
+      image     = var.container_images[each.key]
       essential = true
 
       portMappings = [{
@@ -108,13 +105,6 @@ resource "aws_ecs_task_definition" "service" {
         }
       }
 
-      healthCheck = {
-        command     = ["CMD-SHELL", "wget -q -O - http://localhost:${each.value.port}${each.value.health_path} || exit 1"]
-        interval    = 30
-        timeout     = 5
-        retries     = 3
-        startPeriod = 60
-      }
     }
   ])
 }

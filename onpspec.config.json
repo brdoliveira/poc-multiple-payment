@@ -22,6 +22,7 @@
     ".spec/static-tests/payment-flow-screen.test.mjs",
     ".spec/static-tests/reliability-observability.test.mjs",
     ".spec/static-tests/github-actions-terraform-ci.test.mjs",
+    ".spec/static-tests/ecs-deploy-hardening.test.mjs",
     "web/payment-flow/index.html",
     "web/payment-flow/styles.css",
     "web/payment-flow/app.js",
@@ -35,6 +36,7 @@
     "web/payment-flow/tests/payment-flow.integration.spec.mjs",
     "contracts/payment-events.schema.json",
     "infra/aws/terraform/observability.tf",
+    "infra/aws/terraform/locals.tf",
     "infra/aws/terraform/ecs.tf",
     "docs/observability.md",
     "services/payment-orchestrator-java/src/main/java/com/acme/payments/orchestrator/Application.java",
@@ -89,7 +91,10 @@
     "infra/aws/terraform/observability.tf",
     "infra/aws/terraform/outputs.tf",
     "infra/aws/terraform/README.md",
-    "infra/aws/terraform/terraform.tfvars.example"
+    "infra/aws/terraform/terraform.tfvars.example",
+    ".spec/features/ecs-deploy-hardening/spec.md",
+    ".spec/features/ecs-deploy-hardening/tasks.md",
+    ".spec/features/ecs-deploy-hardening/design.md"
   ],
   "ignoreGlobs": [
     "node_modules/**",

@@ -1,0 +1,27 @@
+{
+  "feature": "ecs-deploy-hardening",
+  "timestamp": "2026-08-12T21:24:01.242Z",
+  "gitRev": "c7ff8a4",
+  "command": "node .spec/run-tests.mjs",
+  "reporter": "tap",
+  "exitCode": 1,
+  "testsParsed": 54,
+  "results": {
+    "AC-030": {
+      "status": "pass",
+      "testName": "ecs-deploy-hardening-static Terraform exige imagens reais e rejeita nginx @spec:AC-030",
+      "method": "tap"
+    },
+    "AC-031": {
+      "status": "pass",
+      "testName": "ecs-deploy-hardening-static Terraform nao define fallback inseguro para API key @spec:AC-031",
+      "method": "tap"
+    },
+    "AC-032": {
+      "status": "pass",
+      "testName": "ecs-deploy-hardening-static ECS delega health check ao ALB e nao usa wget ou curl @spec:AC-032",
+      "method": "tap"
+    }
+  },
+  "principles": {}
+}

@@ -22,12 +22,20 @@ variable "vpc_cidr" {
 }
 
 variable "container_images" {
-  description = "Imagens Docker por servico."
+  description = "Imagens Docker reais por servico, publicadas no ECR."
   type        = map(string)
-  default = {
-    "payment-orchestrator-java" = "public.ecr.aws/docker/library/nginx:1.27-alpine"
-    "pix-boleto-kotlin"         = "public.ecr.aws/docker/library/nginx:1.27-alpine"
-    "card-payment-csharp"       = "public.ecr.aws/docker/library/nginx:1.27-alpine"
+  validation {
+    condition = length(setsubtract(
+      ["payment-orchestrator-java", "pix-boleto-kotlin", "card-payment-csharp"],
+      keys(var.container_images)
+      )) == 0 && length(setsubtract(
+      keys(var.container_images),
+      ["payment-orchestrator-java", "pix-boleto-kotlin", "card-payment-csharp"]
+      )) == 0 && alltrue([
+      for image in values(var.container_images) :
+      length(trimspace(image)) > 0 && !strcontains(lower(image), "nginx")
+    ])
+    error_message = "container_images deve conter somente as tres imagens reais da PoC e nenhuma imagem nginx."
   }
 }
 
@@ -106,7 +114,10 @@ variable "internal_api_key" {
   description = "Chave compartilhada entre os endpoints internos da PoC."
   type        = string
   sensitive   = true
-  default     = "change-me-in-secrets-manager"
+  validation {
+    condition     = length(trimspace(var.internal_api_key)) >= 16
+    error_message = "internal_api_key deve ter pelo menos 16 caracteres e ser fornecida por secret ou tfvars fora do repositorio."
+  }
 }
 
 variable "alert_email" {

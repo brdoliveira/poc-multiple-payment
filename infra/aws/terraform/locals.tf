@@ -20,8 +20,6 @@ locals {
     az => cidrsubnet(var.vpc_cidr, 4, index + 8)
   }
 
-  default_container_image = "public.ecr.aws/docker/library/nginx:1.27-alpine"
-
   services = {
     "payment-orchestrator-java" = {
       cpu          = 512

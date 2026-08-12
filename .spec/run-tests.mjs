@@ -142,6 +142,15 @@ const commands = [
     reports: [],
     reportType: 'tap',
   },
+  {
+    name: 'ecs-deploy-hardening-static',
+    cwd: rootDir,
+    command: process.execPath,
+    args: ['--test', '--test-reporter=tap', path.join(rootDir, '.spec', 'static-tests', 'ecs-deploy-hardening.test.mjs')],
+    env: {},
+    reports: [],
+    reportType: 'tap',
+  },
 ];
 
 const commandResults = [];

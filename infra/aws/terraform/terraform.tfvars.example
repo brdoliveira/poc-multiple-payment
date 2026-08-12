@@ -3,7 +3,7 @@ project_name = "payments"
 environment  = "dev"
 alert_email  = "seu-email@empresa.com"
 
-internal_api_key = "substitua-por-uma-chave-segura"
+internal_api_key = "substitua-por-uma-chave-segura-com-16-ou-mais-caracteres"
 
 # Apos criar e publicar as imagens no ECR:
 container_images = {
