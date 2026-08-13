@@ -1,0 +1,58 @@
+name: containers
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "services/**"
+      - "docker-compose.yml"
+      - ".github/workflows/containers.yml"
+  workflow_dispatch:
+
+env:
+  AWS_REGION: ${{ vars.AWS_REGION || 'sa-east-1' }}
+  ECR_REPOSITORY_PREFIX: ${{ vars.ECR_REPOSITORY_PREFIX || 'payments-dev' }}
+
+jobs:
+  publish:
+    name: Build e publicar ${{ matrix.service }}
+    if: ${{ vars.AWS_ROLE_TO_ASSUME != '' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - service: payment-orchestrator-java
+            context: services/payment-orchestrator-java
+          - service: pix-boleto-kotlin
+            context: services/pix-boleto-kotlin
+          - service: card-payment-csharp
+            context: services/card-payment-csharp
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Configure AWS credentials with OIDC
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.AWS_ROLE_TO_ASSUME }}
+          aws-region: ${{ env.AWS_REGION }}
+      - name: Resolve ECR registry
+        id: registry
+        shell: bash
+        run: echo "registry=$(aws sts get-caller-identity --query Account --output text).dkr.ecr.${AWS_REGION}.amazonaws.com" >> "$GITHUB_OUTPUT"
+      - name: Login to Amazon ECR
+        uses: aws-actions/amazon-ecr-login@v2
+      - name: Set up Buildx
+        uses: docker/setup-buildx-action@v3
+      - name: Build and push immutable image
+        uses: docker/build-push-action@v6
+        with:
+          context: ${{ matrix.context }}
+          push: true
+          tags: ${{ steps.registry.outputs.registry }}/${{ env.ECR_REPOSITORY_PREFIX }}/${{ matrix.service }}:${{ github.sha }}
+          cache-from: type=gha,scope=${{ matrix.service }}
+          cache-to: type=gha,mode=max,scope=${{ matrix.service }}

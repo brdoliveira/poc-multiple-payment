@@ -26,6 +26,7 @@ env:
   TF_DIR: infra/aws/terraform
   AWS_REGION: ${{ vars.AWS_REGION || 'sa-east-1' }}
   TF_ENVIRONMENT: ${{ vars.TF_ENVIRONMENT || 'dev' }}
+  ECR_REPOSITORY_PREFIX: ${{ vars.ECR_REPOSITORY_PREFIX || 'payments-dev' }}
 
 jobs:
   terraform-fmt-validate:
@@ -100,7 +101,11 @@ jobs:
           TF_VAR_aws_region: ${{ env.AWS_REGION }}
           TF_VAR_environment: ${{ env.TF_ENVIRONMENT }}
           TF_VAR_internal_api_key: ${{ secrets.TF_INTERNAL_API_KEY }}
-        run: terraform plan -input=false -no-color
+        run: |
+          account_id="$(aws sts get-caller-identity --query Account --output text)"
+          registry="${account_id}.dkr.ecr.${AWS_REGION}.amazonaws.com"
+          export TF_VAR_container_images="{\"payment-orchestrator-java\":\"${registry}/${ECR_REPOSITORY_PREFIX}/payment-orchestrator-java:${GITHUB_SHA}\",\"pix-boleto-kotlin\":\"${registry}/${ECR_REPOSITORY_PREFIX}/pix-boleto-kotlin:${GITHUB_SHA}\",\"card-payment-csharp\":\"${registry}/${ECR_REPOSITORY_PREFIX}/card-payment-csharp:${GITHUB_SHA}\"}"
+          terraform plan -input=false -no-color
 
   terraform-apply:
     name: Terraform apply manual
@@ -145,7 +150,11 @@ jobs:
           TF_VAR_aws_region: ${{ env.AWS_REGION }}
           TF_VAR_environment: ${{ env.TF_ENVIRONMENT }}
           TF_VAR_internal_api_key: ${{ secrets.TF_INTERNAL_API_KEY }}
-        run: terraform plan -input=false -no-color -out=tfplan
+        run: |
+          account_id="$(aws sts get-caller-identity --query Account --output text)"
+          registry="${account_id}.dkr.ecr.${AWS_REGION}.amazonaws.com"
+          export TF_VAR_container_images="{\"payment-orchestrator-java\":\"${registry}/${ECR_REPOSITORY_PREFIX}/payment-orchestrator-java:${GITHUB_SHA}\",\"pix-boleto-kotlin\":\"${registry}/${ECR_REPOSITORY_PREFIX}/pix-boleto-kotlin:${GITHUB_SHA}\",\"card-payment-csharp\":\"${registry}/${ECR_REPOSITORY_PREFIX}/card-payment-csharp:${GITHUB_SHA}\"}"
+          terraform plan -input=false -no-color -out=tfplan
       - name: Apply approved plan
         working-directory: ${{ env.TF_DIR }}
         run: terraform apply -input=false -auto-approve tfplan

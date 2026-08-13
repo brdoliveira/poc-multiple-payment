@@ -13,6 +13,7 @@
     ".gitignore",
     ".github/workflows/ci.yml",
     ".github/workflows/terraform.yml",
+    ".github/workflows/containers.yml",
     "README.md",
     "SECURITY.md",
     "docs/architecture.md",

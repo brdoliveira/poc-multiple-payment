@@ -31,6 +31,19 @@ test('Plan usa OIDC e backend S3 sem chaves AWS estaticas @spec:AC-027', () => {
   assert.match(workflow, /backend-config="bucket=\$\{\{ vars\.TF_STATE_BUCKET \}\}"/);
   assert.match(workflow, /backend-config="use_lockfile=true"/);
   assert.doesNotMatch(workflow, /AWS_ACCESS_KEY_ID|AWS_SECRET_ACCESS_KEY/);
+  assert.match(workflow, /TF_VAR_container_images/);
+});
+
+test('Workflow publica os tres containers no ECR com tag imutavel @spec:AC-027', () => {
+  const workflow = read('.github/workflows/containers.yml');
+
+  assert.match(workflow, /aws-actions\/configure-aws-credentials@v4/);
+  assert.match(workflow, /docker\/build-push-action@v6/);
+  assert.match(workflow, /github\.sha/);
+  for (const service of ['payment-orchestrator-java', 'pix-boleto-kotlin', 'card-payment-csharp']) {
+    assert.match(workflow, new RegExp(service));
+  }
+  assert.doesNotMatch(workflow, /AWS_ACCESS_KEY_ID|AWS_SECRET_ACCESS_KEY/);
 });
 
 test('Apply e manual, restrito a main e ao environment de desenvolvimento @spec:AC-028', () => {

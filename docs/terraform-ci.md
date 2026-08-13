@@ -27,6 +27,7 @@ repositorio:
 | `AWS_REGION` | Variable | Regiao AWS, por exemplo `sa-east-1` |
 | `TF_STATE_BUCKET` | Variable | Bucket S3 ja criado para o state |
 | `TF_ENVIRONMENT` | Variable | Ambiente, inicialmente `dev` |
+| `ECR_REPOSITORY_PREFIX` | Variable | Prefixo ECR, normalmente `payments-dev` |
 
 Crie o secret `TF_INTERNAL_API_KEY` com a chave interna da aplicacao. Nao
 commite `terraform.tfvars`, `terraform.tfstate` ou credenciais AWS.
@@ -76,3 +77,11 @@ terraform -chdir=infra/aws/terraform validate
 ```
 
 O workflow nao cria o bucket, a role OIDC ou o environment do GitHub.
+
+## Imagens dos microsservicos
+
+O workflow `.github/workflows/containers.yml` constroi e publica os tres
+Dockerfiles no ECR usando a SHA do commit como tag imutavel. Ele usa a mesma
+role OIDC e o prefixo `${project}-${environment}` esperado pelo Terraform.
+Quando `AWS_ROLE_TO_ASSUME` ainda nao existe, o job fica `skipped` sem falhar o
+CI local.
